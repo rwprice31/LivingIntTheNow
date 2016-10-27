@@ -1,5 +1,6 @@
-
-
+// Place all the styles related to the Schedules controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
 .screenContainer{
     margin-left: 2%;
     margin-right: 2%;
@@ -22,17 +23,13 @@
 }
 
 .myTd{
-    border: 1px solid #888888;
+    border: 1px solid blue;
     background-color:#eaeaea;
     width: 12%;
     text-align: center;
     font-size: .8em;
     height: 41px;
-    position: relative;
-    
 }
-
-
 
 .myTh{
     border: 1px solid blue;
@@ -41,20 +38,8 @@
     text-align: center;
 }
 
-.timeText{
-    margin-top: 10px;
-    font-size: 1em;
-        position: relative;
-bottom: -4px;
-}
-
 .empColumn{
     width: 16%;
-}
-
-.time{
-
-
 }
 
 .positionHead{
@@ -66,31 +51,25 @@ bottom: -4px;
 
 .editBut{
     width: 100%;
-    height: 50%;
+    height: 20px;
+    display: inline-block;
+    white-space: nowrap;
     background-color:#9aa6ba;
     color: white;
     font-size: .8em;
     padding-left: 2px;
-    position: absolute;
-    left: 0px;
-    bottom: 0px;
+    
+
 }
 .createBut{
     width: 100%;
     height: 20px;
     display: inline-block;
     white-space: nowrap;
-    position: absolute;
-    left: 0px;
+    line-height: 5px;
     padding-left: 1px;
 }
 
-.createBut:hover{
-     background: #f3f3f3;
-}
-.editBut:hover{
-    background: #5a769a;
-}
 .truncateWarning{
     float:right;
     font-size: .75em;
@@ -105,16 +84,7 @@ bottom: -4px;
     width: 300px;
     padding: 0px;
 }
-#submitBut{
-    float:right;
-    margin-right: 15px;
-    margin-top: 20px;
-}
-#cancelBut{
-    float:right;
-    margin-right: 20px;
-    margin-top: 20px;
-}
+
 .fRight{
     float: right;
     padding: 0px;
@@ -128,7 +98,6 @@ bottom: -4px;
 .modal-header{
     height: 45px;
     padding: 10px;
-    background-color: darkgray;
 }
 
 .modal-body{
@@ -139,11 +108,10 @@ bottom: -4px;
 }
 
 .modal-footer{
-    height: 53px;
+    height: 30px;
     padding: 0px;
     padding-right: 10px;
     padding-top: 0px;
-    background-color: darkgray;
 }
 
 .lg, .lg { display: inline-block; }
@@ -161,7 +129,7 @@ bottom: -4px;
         font-size: .8em;
     }
     .createBut{
-        font-size: .75em;
+        font-size: .65em;
         padding-left: 2px;
     }
     .empHead.sm{
@@ -190,18 +158,15 @@ bottom: -4px;
 
     }
     .modal-footer{
-        height: 56px;
+        height: 0px;
     }
     .tableContainer{
         padding: 0px; 
         margin: 0px;
     }
-    .editBut{
-        width: 100%;
-        height: 100%;
-        background-color:#9aa6ba;
-        color: white;
-        font-size: .9em;
-        
+    .editButton{
+        height: auto;
+        font-size: .6em;
+        text-align-last: center;
     }
 }

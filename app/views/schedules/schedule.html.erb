@@ -1,17 +1,6 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-<html>
-  <head>
-    <title>Test</title>
-    <%= stylesheet_link_tag "schStyles" %>
-        <link rel="stylesheet" href="css/schStyles.css">
-        <link rel="stylesheet" href="css/styles.css">
-          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        
-  </head>
-  <body>
+   <link rel="stylesheet" href="stylesheets/schStyles.css">
+   
     <div class="screenContainer">
       This is the outer div
       <div class="tableContainer">
@@ -37,53 +26,9 @@
             <th class="myTh sm">Sat</th>
             <th class="myTh sm">Sun</th>
           </tr>
-            <tr><th class="positionHead">Cooks</th></tr>
-            
-            <tr><th class="empHead sm">Tim Dougherty<span class="truncateWarning">(Times are Truncated)</span></th></tr>
-          <tr>
-            <th class="myTh lg empColumn">Tim Dougherty</th>
-            <td class="myTd lg"><button type="button" class="createBut" data-toggle="modal" data-user="2" href="#myModal" id="first">Create Shift</button></td>
-            <td class="myTd lg"><button type="button" class="createBut" data-toggle="modal" href="#myModal">Create Shift</button></td>
-            <td class="myTd lg"><button type="button" class="createBut" data-toggle="modal" href="#myModal">Create Shift</button></td>  
-            <td class="myTd lg"><button type="button" class="createBut" data-toggle="modal" href="#myModal">Create Shift</button></td>
-            <td class="myTd lg"><input type="time" name="startTime" id="startTime" class="editBut" value="22:15" >
-                <input type="time" name="startTime" id="startTime" class="editBut" value="04:15"></td>
-            <td class="myTd lg"><input type="time" name="startTime" id="startTime" class="editBut" value="23:00">
-                <input type="time" name="startTime" id="startTime" class="editBut" value="03:00"></td>
-            <td class="myTd lg"><input type="time" name="startTime" id="startTime" class="editBut" value="23:30">
-                <input type="time" name="startTime" id="startTime" class="editBut" value="03:00"></td>
-              
-            <td class="myTd sm"><button type="button" class="createBut" data-toggle="modal" href="#myModal">Create</button></td>
-            <td class="myTd sm"><button type="button" class="createBut" data-toggle="modal" href="#myModal">Create</button></td>
-            <td class="myTd sm"><button type="button" class="editBut" data-toggle="modal" href="#myModal">8-4</button></td>
-            <td class="myTd sm"><button type="button" class="editBut" data-toggle="modal" href="#myModal">4-11</button></td>
-            <td class="myTd sm"><button type="button" class="createBut" data-toggle="modal" href="#myModal">Create</button></td>
-            <td class="myTd sm"><button type="button" class="editBut" data-toggle="modal" href="#myModal">4-11</button></td>
-            <td class="myTd sm"><button type="button" class="editBut" data-toggle="modal" href="#myModal">4-11</button></td>
-          </tr>  
-            
-             <tr><th class="empHead sm">Kathy Kemp<span class="truncateWarning">(Times are Truncated)</span></th></tr>
-          <tr>
-            <th class="myTh lg empColumn">Kathy Kemp</th>
-            <td class="myTd lg"><button type="button" class="createBut" data-toggle="modal" href="#myModal" data-user="3">Create Shift</button></td>
-            <td class="myTd lg"><input type="time" name="startTime" id="startTime" class="editBut" value="06:15">
-                <input type="time" name="startTime" id="startTime" class="editBut" value="12:15"></td>
-            <td class="myTd lg"><button type="button" class="createBut" data-toggle="modal" href="#myModal">Create Shift</button></td>  
-            <td class="myTd lg"><button type="button" class="createBut" data-toggle="modal" href="#myModal">Create Shift</button></td>
-            <td class="myTd lg"><input type="time" name="startTime" id="startTime" class="editBut" value="13:00">
-                <input type="time" name="startTime" id="startTime" class="editBut" value="18:00"></td>
-            <td class="myTd lg"><button type="button" class="createBut" data-toggle="modal" href="#myModal">Create Shift</button></td>
-            <td class="myTd lg"><input type="time" name="startTime" id="startTime" class="editBut" value="12:00">
-                <input type="time" name="startTime" id="startTime" class="editBut" value="18:00"></td>
-              
-            <td class="myTd sm"><button type="button" class="createBut" data-toggle="modal" href="#myModal">Create</button></td>
-            <td class="myTd sm"><button type="button" class="createBut" data-toggle="modal" href="#myModal">Create</button></td>
-            <td class="myTd sm"><button type="button" class="editBut" data-toggle="modal" href="#myModal">8-4</button></td>
-            <td class="myTd sm"><button type="button" class="editBut" data-toggle="modal" href="#myModal">4-11</button></td>
-            <td class="myTd sm"><button type="button" class="createBut" data-toggle="modal" href="#myModal">Create</button></td>
-            <td class="myTd sm"><button type="button" class="editBut" data-toggle="modal" href="#myModal">4-11</button></td>
-            <td class="myTd sm"><button type="button" class="editBut" data-toggle="modal" href="#myModal">4-11</button></td>
-          </tr> 
+
+<%= render "table"  %>
+       
         </table>
 
       </div>
@@ -105,19 +50,28 @@
             <fieldset>
                  <div class="row">
                      
-                <section class="col-sm-4 col-xs-12 "><label for="startTime" class="fRight noPad">Start Time</label></section>
-                <section class="col-sm-8 col-xs-12 "><input type="time" name="startTime" id="startTime"  
-                                                       class="time ui-widget-content ui-corner-all"></section>
+                         
+                <section class="col-sm-4 col-xs-12 "><label for="startT" class="fRight noPad">Start Time</label></section>
+                <section class="col-sm-8 col-xs-12 "><input type="time" name="startT" id="startT"  
+                                                       class="time  "></section>
                       
-                <section class="col-sm-4 col-xs-12"><label for="endTime" class="fRight noPad">End Time</label></section>
-                <section class="col-sm-8 col-xs-12 "><input type="time" name="endTime" id="endTime"  
-                                                       class="time ui-widget-content ui-corner-all noPad"></section>
+                <section class="col-sm-4 col-xs-12"><label for="endT" class="fRight noPad">End Time</label></section>
+                <section class="col-sm-8 col-xs-12 "><input type="time" name="endT" id="endT"  
+                                                       class="time  "></section>
+                
                      
-                <section class="col-sm-4 col-xs-12"><label for="endTime" class="fRight noPad">User ID</label></section>
-                <section class="col-sm-8 col-xs-12 " id="userModal"></section>
+                <!-- Development Value Display to turn on remove comment here and in schedule.js    
+                <section class="col-sm-4 col-xs-12"><label for="devInfo" class="fRight noPad">Dev Info</label></section>
+                <section class="col-sm-8 col-xs-12 " id="devInfo"></section>
+                -->
 
+                <input type="hidden" id="date" >
+                <input type="hidden" id="userId" >
+                     
               <!-- Allow form submission with keyboard without duplicating the dialog button -->
-              <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
+                     
+              
+              
                    
                 </div><!-- row -->
             </fieldset>
@@ -125,17 +79,14 @@
             
         </div>
         <div class="modal-footer">
-            <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Save</button>
-            <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Cancel</button>
+              <input type="submit" id="submitBut" onclick="return printShiftView();" data-dismiss="modal">
+              <input type="button" id="cancelBut"  data-dismiss="modal" value="Cancel">
         </div>
       </div>      
     </div>
   </div>  
       
       
-<script src="js/schedule.js"></script>
+<script src="javascripts/schedule.js"></script>
 
       
-      
-  </body>
-</html>

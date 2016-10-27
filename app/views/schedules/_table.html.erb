@@ -1,0 +1,33 @@
+
+<% my_staff = {"Cooks"=>["Doncho Dontchev1", "Amy Clark2", "Jim Kemp3"], "Waiters"=>["Russ Dewitt4", "Antwane Duwane5"], "Busers"=>["James Kenyon6", "Hillary Overton7"], "Managers"=>["Benny Mitchell8", "Phil Hoddy9"]} %>
+
+
+
+
+<% my_staff.each do |key, array| %>
+
+
+     <tr><th class="positionHead"> <%= key %> </th></tr>
+ 
+         <% array.each do |x| %>
+         <% d = Date.new(2016,5,29) %>
+         <% userId = x.gsub(/[^0-9]/, "") %>
+         <% name = x.gsub(/[^a-zA-Z ]/i, '') %>
+         <tr>
+         <th class="myTh lg empColumn"> <%= name %> </th>
+         
+             <% (0..6).each do |i| %>
+             <% d = d.next_day(1) %>
+             
+                <td class="myTd lg" id="tag<%= userId %>|<%= d %> ">
+                <span class="timeText mil_time"  >11:00</span>
+                 - <span class="timeText mil_time">15:00</span>
+                <button type="button" class="editBut" data-toggle="modal" data-user="<%= userId %>"
+                data-start="11:00" data-end="15:00" data-date="<%= d %>" href="#myModal" 
+                id="<%= userId %>|<%= d %>">Edit Shift</button>
+                </td>
+             
+             <% end %>
+         </tr>
+         <% end %>
+<% end %>

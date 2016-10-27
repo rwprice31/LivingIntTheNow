@@ -1,0 +1,715 @@
+/* line 1, /home/ubuntu/workspace/LivingIntTheNow/app/assets/stylesheets/scaffolds.scss */
+body {
+  background-color: #fff;
+  color: #333;
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+  margin: 33px;
+}
+
+/* line 10, /home/ubuntu/workspace/LivingIntTheNow/app/assets/stylesheets/scaffolds.scss */
+p, ol, ul, td {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+  margin: 33px;
+}
+
+/* line 17, /home/ubuntu/workspace/LivingIntTheNow/app/assets/stylesheets/scaffolds.scss */
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
+}
+
+/* line 23, /home/ubuntu/workspace/LivingIntTheNow/app/assets/stylesheets/scaffolds.scss */
+a {
+  color: #000;
+}
+/* line 26, /home/ubuntu/workspace/LivingIntTheNow/app/assets/stylesheets/scaffolds.scss */
+a:visited {
+  color: #666;
+}
+/* line 30, /home/ubuntu/workspace/LivingIntTheNow/app/assets/stylesheets/scaffolds.scss */
+a:hover {
+  color: #fff;
+  background-color: #000;
+}
+
+/* line 36, /home/ubuntu/workspace/LivingIntTheNow/app/assets/stylesheets/scaffolds.scss */
+th {
+  padding-bottom: 5px;
+}
+
+/* line 40, /home/ubuntu/workspace/LivingIntTheNow/app/assets/stylesheets/scaffolds.scss */
+td {
+  padding-bottom: 7px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+/* line 47, /home/ubuntu/workspace/LivingIntTheNow/app/assets/stylesheets/scaffolds.scss */
+div.field, div.actions {
+  margin-bottom: 10px;
+}
+
+/* line 52, /home/ubuntu/workspace/LivingIntTheNow/app/assets/stylesheets/scaffolds.scss */
+#notice {
+  color: green;
+}
+
+/* line 56, /home/ubuntu/workspace/LivingIntTheNow/app/assets/stylesheets/scaffolds.scss */
+.field_with_errors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+/* line 62, /home/ubuntu/workspace/LivingIntTheNow/app/assets/stylesheets/scaffolds.scss */
+#error_explanation {
+  width: 450px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+/* line 70, /home/ubuntu/workspace/LivingIntTheNow/app/assets/stylesheets/scaffolds.scss */
+#error_explanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  margin-bottom: 0;
+  background-color: #c00;
+  color: #fff;
+}
+/* line 81, /home/ubuntu/workspace/LivingIntTheNow/app/assets/stylesheets/scaffolds.scss */
+#error_explanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
+
+/* line 87, /home/ubuntu/workspace/LivingIntTheNow/app/assets/stylesheets/scaffolds.scss */
+label {
+  display: block;
+}
+
+/* line 94, /home/ubuntu/workspace/LivingIntTheNow/app/assets/stylesheets/scaffolds.scss */
+.screenContainer {
+  margin-left: 2%;
+  margin-right: 2%;
+  background-color: #b5c0d1;
+}
+
+/* line 100, /home/ubuntu/workspace/LivingIntTheNow/app/assets/stylesheets/scaffolds.scss */
+.tableContainer {
+  background-color: #ced6e2;
+  padding: 10px;
+  margin: 10px;
+}
+
+/* line 106, /home/ubuntu/workspace/LivingIntTheNow/app/assets/stylesheets/scaffolds.scss */
+.myTable {
+  width: 100%;
+}
+
+/* line 110, /home/ubuntu/workspace/LivingIntTheNow/app/assets/stylesheets/scaffolds.scss */
+.noPad {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* line 115, /home/ubuntu/workspace/LivingIntTheNow/app/assets/stylesheets/scaffolds.scss */
+.myTd {
+  border: 1px solid blue;
+  background-color: #eaeaea;
+  width: 12%;
+  text-align: center;
+  font-size: .8em;
+  height: 41px;
+}
+
+/* line 124, /home/ubuntu/workspace/LivingIntTheNow/app/assets/stylesheets/scaffolds.scss */
+.myTh {
+  border: 1px solid blue;
+  background-color: #dee1e5;
+  width: 12%;
+  text-align: center;
+}
+
+/* line 131, /home/ubuntu/workspace/LivingIntTheNow/app/assets/stylesheets/scaffolds.scss */
+.empColumn {
+  width: 16%;
+}
+
+/* line 135, /home/ubuntu/workspace/LivingIntTheNow/app/assets/stylesheets/scaffolds.scss */
+.positionHead {
+  text-align: center;
+  color: aliceblue;
+  background-color: #727b89;
+  width: 2%;
+}
+
+/* line 142, /home/ubuntu/workspace/LivingIntTheNow/app/assets/stylesheets/scaffolds.scss */
+.editBut {
+  width: 100%;
+  height: 20px;
+  display: inline-block;
+  white-space: nowrap;
+  background-color: #9aa6ba;
+  color: white;
+  font-size: .8em;
+  padding-left: 2px;
+}
+
+/* line 154, /home/ubuntu/workspace/LivingIntTheNow/app/assets/stylesheets/scaffolds.scss */
+.createBut {
+  width: 100%;
+  height: 20px;
+  display: inline-block;
+  white-space: nowrap;
+  line-height: 5px;
+  padding-left: 1px;
+}
+
+/* line 163, /home/ubuntu/workspace/LivingIntTheNow/app/assets/stylesheets/scaffolds.scss */
+.truncateWarning {
+  float: right;
+  font-size: .75em;
+  padding-top: 5px;
+  padding-right: 2%;
+  font-weight: 100;
+}
+
+/* line 172, /home/ubuntu/workspace/LivingIntTheNow/app/assets/stylesheets/scaffolds.scss */
+.modal-content {
+  height: 175px;
+  width: 300px;
+  padding: 0px;
+}
+
+/* line 178, /home/ubuntu/workspace/LivingIntTheNow/app/assets/stylesheets/scaffolds.scss */
+.fRight {
+  float: right;
+  padding: 0px;
+}
+
+/* line 183, /home/ubuntu/workspace/LivingIntTheNow/app/assets/stylesheets/scaffolds.scss */
+.modal-title {
+  height: 25px;
+  padding: 0px;
+}
+
+/* line 188, /home/ubuntu/workspace/LivingIntTheNow/app/assets/stylesheets/scaffolds.scss */
+.modal-header {
+  height: 45px;
+  padding: 10px;
+}
+
+/* line 193, /home/ubuntu/workspace/LivingIntTheNow/app/assets/stylesheets/scaffolds.scss */
+.modal-body {
+  height: 75px;
+  padding: 0px;
+  padding-left: 10px;
+  padding-top: 0px;
+}
+
+/* line 200, /home/ubuntu/workspace/LivingIntTheNow/app/assets/stylesheets/scaffolds.scss */
+.modal-footer {
+  height: 30px;
+  padding: 0px;
+  padding-right: 10px;
+  padding-top: 0px;
+}
+
+/* line 207, /home/ubuntu/workspace/LivingIntTheNow/app/assets/stylesheets/scaffolds.scss */
+.lg, .lg {
+  display: inline-block;
+}
+
+/* line 208, /home/ubuntu/workspace/LivingIntTheNow/app/assets/stylesheets/scaffolds.scss */
+.sm, .sm {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  /* line 211, /home/ubuntu/workspace/LivingIntTheNow/app/assets/stylesheets/scaffolds.scss */
+  .lg {
+    display: none;
+  }
+
+  /* line 214, /home/ubuntu/workspace/LivingIntTheNow/app/assets/stylesheets/scaffolds.scss */
+  .sm {
+    display: inline-block;
+    width: 14.28%;
+  }
+
+  /* line 218, /home/ubuntu/workspace/LivingIntTheNow/app/assets/stylesheets/scaffolds.scss */
+  .editBut {
+    font-size: .8em;
+  }
+
+  /* line 221, /home/ubuntu/workspace/LivingIntTheNow/app/assets/stylesheets/scaffolds.scss */
+  .createBut {
+    font-size: .65em;
+    padding-left: 2px;
+  }
+
+  /* line 225, /home/ubuntu/workspace/LivingIntTheNow/app/assets/stylesheets/scaffolds.scss */
+  .empHead.sm {
+    width: 100%;
+  }
+
+  /* line 228, /home/ubuntu/workspace/LivingIntTheNow/app/assets/stylesheets/scaffolds.scss */
+  .myTd {
+    border: 0px;
+    height: 20px;
+  }
+
+  /* line 232, /home/ubuntu/workspace/LivingIntTheNow/app/assets/stylesheets/scaffolds.scss */
+  .fRight {
+    float: left;
+  }
+
+  /* line 235, /home/ubuntu/workspace/LivingIntTheNow/app/assets/stylesheets/scaffolds.scss */
+  .screenContainer {
+    margin-left: 0%;
+    margin-right: 0%;
+    padding: 0px;
+    margin: 0px;
+  }
+
+  /* line 241, /home/ubuntu/workspace/LivingIntTheNow/app/assets/stylesheets/scaffolds.scss */
+  .modal-content {
+    height: 215px;
+    width: 225px;
+    padding: 0px;
+  }
+
+  /* line 246, /home/ubuntu/workspace/LivingIntTheNow/app/assets/stylesheets/scaffolds.scss */
+  .modal-body {
+    height: 112px;
+  }
+
+  /* line 250, /home/ubuntu/workspace/LivingIntTheNow/app/assets/stylesheets/scaffolds.scss */
+  .modal-footer {
+    height: 0px;
+  }
+
+  /* line 253, /home/ubuntu/workspace/LivingIntTheNow/app/assets/stylesheets/scaffolds.scss */
+  .tableContainer {
+    padding: 0px;
+    margin: 0px;
+  }
+
+  /* line 257, /home/ubuntu/workspace/LivingIntTheNow/app/assets/stylesheets/scaffolds.scss */
+  .editButton {
+    height: auto;
+    font-size: .6em;
+    text-align-last: center;
+  }
+}
+.screenContainer{
+    margin-left: 2%;
+    margin-right: 2%;
+    background-color:#b5c0d1;
+}
+
+.tableContainer{
+    background-color: #ced6e2;
+    padding: 10px; 
+    margin:10px;
+}
+
+.myTable{
+    width: 100%;           
+}
+
+.noPad {
+   padding: 0 !important;
+   margin: 0 !important;
+}
+
+.myTd{
+    border: 1px solid blue;
+    background-color:#eaeaea;
+    width: 12%;
+    text-align: center;
+    font-size: .8em;
+    height: 41px;
+}
+
+.myTh{
+    border: 1px solid blue;
+    background-color:#dee1e5;
+    width: 12%;
+    text-align: center;
+}
+
+.empColumn{
+    width: 16%;
+}
+
+.positionHead{
+    text-align: center;
+    color: aliceblue;
+    background-color:#727b89;
+    width: 2%;
+}
+
+.editBut{
+    width: 100%;
+    height: 20px;
+    display: inline-block;
+    white-space: nowrap;
+    background-color:#9aa6ba;
+    color: white;
+    font-size: .8em;
+    padding-left: 2px;
+    
+
+}
+.createBut{
+    width: 100%;
+    height: 20px;
+    display: inline-block;
+    white-space: nowrap;
+    line-height: 5px;
+    padding-left: 1px;
+}
+
+.truncateWarning{
+    float:right;
+    font-size: .75em;
+    padding-top: 5px;
+    padding-right: 2%;
+    font-weight: 100;
+    
+}
+
+.modal-content{
+    height: 175px;
+    width: 300px;
+    padding: 0px;
+}
+
+.fRight{
+    float: right;
+    padding: 0px;
+}
+
+.modal-title{
+    height: 25px;
+    padding: 0px;
+}
+
+.modal-header{
+    height: 45px;
+    padding: 10px;
+}
+
+.modal-body{
+    height: 75px;
+    padding: 0px;
+    padding-left: 10px;
+    padding-top: 0px;
+}
+
+.modal-footer{
+    height: 30px;
+    padding: 0px;
+    padding-right: 10px;
+    padding-top: 0px;
+}
+
+.lg, .lg { display: inline-block; }
+.sm, .sm { display: none; }
+
+@media (max-width: 767px) { 
+     .lg { 
+        display: none; 
+    }
+    .sm { 
+        display: inline-block; 
+        width: 14.28%;
+    }
+    .editBut{
+        font-size: .8em;
+    }
+    .createBut{
+        font-size: .65em;
+        padding-left: 2px;
+    }
+    .empHead.sm{
+        width: 100%;  
+    }
+    .myTd{
+        border: 0px; 
+        height: 20px;
+    }
+    .fRight{
+        float: left;
+    }
+    .screenContainer{ 
+        margin-left: 0%;
+        margin-right: 0%;
+        padding: 0px; 
+        margin: 0px;
+    }
+    .modal-content{
+        height: 215px;
+        width: 225px;
+        padding: 0px;
+    }
+    .modal-body{
+        height: 112px;
+
+    }
+    .modal-footer{
+        height: 0px;
+    }
+    .tableContainer{
+        padding: 0px; 
+        margin: 0px;
+    }
+    .editButton{
+        height: auto;
+        font-size: .6em;
+        text-align-last: center;
+    }
+}
+/* line 4, /home/ubuntu/workspace/LivingIntTheNow/app/assets/stylesheets/schedules.scss */
+.screenContainer {
+  margin-left: 2%;
+  margin-right: 2%;
+  background-color: #b5c0d1;
+}
+
+/* line 10, /home/ubuntu/workspace/LivingIntTheNow/app/assets/stylesheets/schedules.scss */
+.tableContainer {
+  background-color: #ced6e2;
+  padding: 10px;
+  margin: 10px;
+}
+
+/* line 16, /home/ubuntu/workspace/LivingIntTheNow/app/assets/stylesheets/schedules.scss */
+.myTable {
+  width: 100%;
+}
+
+/* line 20, /home/ubuntu/workspace/LivingIntTheNow/app/assets/stylesheets/schedules.scss */
+.noPad {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* line 25, /home/ubuntu/workspace/LivingIntTheNow/app/assets/stylesheets/schedules.scss */
+.myTd {
+  border: 1px solid blue;
+  background-color: #eaeaea;
+  width: 12%;
+  text-align: center;
+  font-size: .8em;
+  height: 41px;
+}
+
+/* line 34, /home/ubuntu/workspace/LivingIntTheNow/app/assets/stylesheets/schedules.scss */
+.myTh {
+  border: 1px solid blue;
+  background-color: #dee1e5;
+  width: 12%;
+  text-align: center;
+}
+
+/* line 41, /home/ubuntu/workspace/LivingIntTheNow/app/assets/stylesheets/schedules.scss */
+.empColumn {
+  width: 16%;
+}
+
+/* line 45, /home/ubuntu/workspace/LivingIntTheNow/app/assets/stylesheets/schedules.scss */
+.positionHead {
+  text-align: center;
+  color: aliceblue;
+  background-color: #727b89;
+  width: 2%;
+}
+
+/* line 52, /home/ubuntu/workspace/LivingIntTheNow/app/assets/stylesheets/schedules.scss */
+.editBut {
+  width: 100%;
+  height: 20px;
+  display: inline-block;
+  white-space: nowrap;
+  background-color: #9aa6ba;
+  color: white;
+  font-size: .8em;
+  padding-left: 2px;
+}
+
+/* line 64, /home/ubuntu/workspace/LivingIntTheNow/app/assets/stylesheets/schedules.scss */
+.createBut {
+  width: 100%;
+  height: 20px;
+  display: inline-block;
+  white-space: nowrap;
+  line-height: 5px;
+  padding-left: 1px;
+}
+
+/* line 73, /home/ubuntu/workspace/LivingIntTheNow/app/assets/stylesheets/schedules.scss */
+.truncateWarning {
+  float: right;
+  font-size: .75em;
+  padding-top: 5px;
+  padding-right: 2%;
+  font-weight: 100;
+}
+
+/* line 82, /home/ubuntu/workspace/LivingIntTheNow/app/assets/stylesheets/schedules.scss */
+.modal-content {
+  height: 175px;
+  width: 300px;
+  padding: 0px;
+}
+
+/* line 88, /home/ubuntu/workspace/LivingIntTheNow/app/assets/stylesheets/schedules.scss */
+.fRight {
+  float: right;
+  padding: 0px;
+}
+
+/* line 93, /home/ubuntu/workspace/LivingIntTheNow/app/assets/stylesheets/schedules.scss */
+.modal-title {
+  height: 25px;
+  padding: 0px;
+}
+
+/* line 98, /home/ubuntu/workspace/LivingIntTheNow/app/assets/stylesheets/schedules.scss */
+.modal-header {
+  height: 45px;
+  padding: 10px;
+}
+
+/* line 103, /home/ubuntu/workspace/LivingIntTheNow/app/assets/stylesheets/schedules.scss */
+.modal-body {
+  height: 75px;
+  padding: 0px;
+  padding-left: 10px;
+  padding-top: 0px;
+}
+
+/* line 110, /home/ubuntu/workspace/LivingIntTheNow/app/assets/stylesheets/schedules.scss */
+.modal-footer {
+  height: 30px;
+  padding: 0px;
+  padding-right: 10px;
+  padding-top: 0px;
+}
+
+/* line 117, /home/ubuntu/workspace/LivingIntTheNow/app/assets/stylesheets/schedules.scss */
+.lg, .lg {
+  display: inline-block;
+}
+
+/* line 118, /home/ubuntu/workspace/LivingIntTheNow/app/assets/stylesheets/schedules.scss */
+.sm, .sm {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  /* line 121, /home/ubuntu/workspace/LivingIntTheNow/app/assets/stylesheets/schedules.scss */
+  .lg {
+    display: none;
+  }
+
+  /* line 124, /home/ubuntu/workspace/LivingIntTheNow/app/assets/stylesheets/schedules.scss */
+  .sm {
+    display: inline-block;
+    width: 14.28%;
+  }
+
+  /* line 128, /home/ubuntu/workspace/LivingIntTheNow/app/assets/stylesheets/schedules.scss */
+  .editBut {
+    font-size: .8em;
+  }
+
+  /* line 131, /home/ubuntu/workspace/LivingIntTheNow/app/assets/stylesheets/schedules.scss */
+  .createBut {
+    font-size: .65em;
+    padding-left: 2px;
+  }
+
+  /* line 135, /home/ubuntu/workspace/LivingIntTheNow/app/assets/stylesheets/schedules.scss */
+  .empHead.sm {
+    width: 100%;
+  }
+
+  /* line 138, /home/ubuntu/workspace/LivingIntTheNow/app/assets/stylesheets/schedules.scss */
+  .myTd {
+    border: 0px;
+    height: 20px;
+  }
+
+  /* line 142, /home/ubuntu/workspace/LivingIntTheNow/app/assets/stylesheets/schedules.scss */
+  .fRight {
+    float: left;
+  }
+
+  /* line 145, /home/ubuntu/workspace/LivingIntTheNow/app/assets/stylesheets/schedules.scss */
+  .screenContainer {
+    margin-left: 0%;
+    margin-right: 0%;
+    padding: 0px;
+    margin: 0px;
+  }
+
+  /* line 151, /home/ubuntu/workspace/LivingIntTheNow/app/assets/stylesheets/schedules.scss */
+  .modal-content {
+    height: 215px;
+    width: 225px;
+    padding: 0px;
+  }
+
+  /* line 156, /home/ubuntu/workspace/LivingIntTheNow/app/assets/stylesheets/schedules.scss */
+  .modal-body {
+    height: 112px;
+  }
+
+  /* line 160, /home/ubuntu/workspace/LivingIntTheNow/app/assets/stylesheets/schedules.scss */
+  .modal-footer {
+    height: 0px;
+  }
+
+  /* line 163, /home/ubuntu/workspace/LivingIntTheNow/app/assets/stylesheets/schedules.scss */
+  .tableContainer {
+    padding: 0px;
+    margin: 0px;
+  }
+
+  /* line 167, /home/ubuntu/workspace/LivingIntTheNow/app/assets/stylesheets/schedules.scss */
+  .editButton {
+    height: auto;
+    font-size: .6em;
+    text-align-last: center;
+  }
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+
+
+ */
+
+
