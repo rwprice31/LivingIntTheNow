@@ -13,7 +13,7 @@ class NotificationMailer < ApplicationMailer
        @shift = shift
        
        mail(to: @user.email, subject: 'Your shift was picked up!')
-       mail(to: @requester.email, subject: 'Yourequest was approved!')
+       mail(to: @requester.email, subject: 'Your request was approved!')
        mail(to: @manager.email, subject: 'You approved a request!')
     end
     
@@ -25,5 +25,9 @@ class NotificationMailer < ApplicationMailer
        mail(to: @requester.email, subject: 'Sorry, your request was denied.')
     end
     
-    
+    def update_schedule(date, store)
+        User.where(store: store).find_each do |user|
+            mail(to: user.email, subject: 'Your schedule for the week of ' + date + '.')
+        end
+    end
 end
