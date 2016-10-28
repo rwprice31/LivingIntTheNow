@@ -6,85 +6,114 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-#Store.create(email: nil, companyName: nil, address: nil, zipCode: nil)
-Store.create(email: 'example-store@email.com', companyName: 'Example Company Inc.', address: '123 Example Drive', zipCode: '30043')
-Store.create(email: 'example-store1@email.com', companyName: 'Example Company Corp.', address: '124 Example Drive', zipCode: '30043')
-Store.create(email: 'example-store2@email.com', companyName: 'Example Company -The Original-', address: '125 Example Drive', zipCode: '30043')
+Store.destroy_all
+User.destroy_all
+Position.destroy_all
+Schedule.destroy_all
 
 
-#User.create(email: nil, password: nil, firstName: nil, lastName: nil, active: nil, admin: nil, phone: nil, store_id: nil)
+# create store
+Store.create(email: "fatboy@fatburger.com", companyName: "Fat Boy Burgers", address: "1495 Buford Hwy", zipCode: "30518")
 
-#Store 1
-User.create(email: 'example-user@email.com', password: 'Password', firstName: 'Amy', lastName: 'Smith', active: true, admin: true, phone: '+1(777)555-6789', store_id: 1)
-User.create(email: 'example-user1@email.com', password: 'Password', firstName: 'Bob', lastName: 'Smithy', active: false, admin: true, phone: '+1(777)555-6789', store_id: 1)
-User.create(email: 'example-user2@email.com', password: 'Password', firstName: 'Cat', lastName: 'Smither', active: true, admin: false, phone: '+1(777)555-6789', store_id: 1)
-User.create(email: 'example-user3@email.com', password: 'Password', firstName: 'Dan', lastName: 'Smithers', active: false, admin: false, phone: '+1(777)555-6789', store_id: 1)
+# create 11 users
+u0 = User.create!(email: "amy@fatburger.com", password: "pw", firstName: "Amy", lastName: "Clark", active: true, admin: false, phone: "770-932-6800")
+u1 = User.create!(email: "Jim@fatburger.com", password: "pw", firstName: "Jim", lastName: "Kemp", active: true, admin: false, phone: "770-932-1339")
+u2 = User.create!(email: "James@fatburger.com", password: "pw", firstName: "James", lastName: "Kenyon", active: true, admin: false, phone: "770-932-9996")
+u3 = User.create!(email: "dontcho@fatburger.com", password: "pw", firstName: "Dontcho", lastName: "Dontchev", active: true, admin: false, phone: "770-932-8801")
+u4 = User.create!(email: "Russ@fatburger.com", password: "pw", firstName: "Russ", lastName: "Dewitt", active: true, admin: false, phone: "770-932-1400")
+u5 = User.create!(email: "Antwane@fatburger.com", password: "pw", firstName: "Antwane", lastName: "Lunne", active: true, admin: false, phone: "770-932-1111")
+u6 = User.create!(email: "tony@fatburger.com", password: "pw", firstName: "Tony", lastName: "Bennett", active: true, admin: false, phone: "770-932-2222")
+u7 = User.create!(email: "hillary@fatburger.com", password: "pw", firstName: "Hillary", lastName: "Overton", active: true, admin: false, phone: "770-932-3333")
+u8 = User.create!(email: "ben@fatburger.com", password: "pw", firstName: "Ben", lastName: "House", active: true, admin: false, phone: "770-932-4444")
+u9 = User.create!(email: "poukey@fatburger.com", password: "pw", firstName: "Poukey", lastName: "Doo", active: true, admin: false, phone: "770-932-5555")
+u10 = User.create!(email: "Bob@fatburger.com", password: "pw", firstName: "Bobby", lastName: "Merone", active: true, admin: false, phone: "770-932-6666")
 
-#Store 2
-User.create(email: 'example-user4@email.com', password: 'Password', firstName: 'Eve', lastName: 'O\'Smith', active: true, admin: true, phone: '+1(777)555-6789', store_id: 2)
-User.create(email: 'example-user5@email.com', password: 'Password', firstName: 'Fro', lastName: 'Smithson', active: true, admin: false, phone: '+1(777)555-6789', store_id: 2)
-User.create(email: 'example-user6@email.com', password: 'Password', firstName: 'Guy', lastName: 'Smithsan', active: true, admin: false, phone: '+1(777)555-6789', store_id: 2)
-User.create(email: 'example-user7@email.com', password: 'Password', firstName: 'Hop', lastName: 'Smith-san', active: true, admin: false, phone: '+1(777)555-6789', store_id: 2)
-User.create(email: 'example-user8@email.com', password: 'Password', firstName: 'Ira', lastName: 'Smith-Smith', active: true, admin: false, phone: '+1(777)555-6789', store_id: 2)
-User.create(email: 'example-user9@email.com', password: 'Password', firstName: 'Jak', lastName: 'Smithle', active: true, admin: false, phone: '+1(777)555-6789', store_id: 2)
-User.create(email: 'example-user0@email.com', password: 'Password', firstName: 'Kye', lastName: 'Smithsonian', active: true, admin: false, phone: '+1(777)555-6789', store_id: 2)
-User.create(email: 'example-user10@email.com', password: 'Password', firstName: 'Lem', lastName: 'Smit', active: false, admin: false, phone: '+1(777)555-6789', store_id: 2)
-User.create(email: 'example-user11@email.com', password: 'Password', firstName: 'Man', lastName: 'Mith', active: false, admin: false, phone: '+1(777)555-6789', store_id: 2)
-User.create(email: 'example-user12@email.com', password: 'Password', firstName: 'Nik', lastName: 'Smth', active: false, admin: false, phone: '+1(777)555-6789', store_id: 2)
+# create 5 positions
+Position.create(name: "Waiter", editSchedule: false, acceptDenyShift: false, scheduleable: true)
+Position.create(name: "Busser", editSchedule: false, acceptDenyShift: false, scheduleable: true)
+Position.create(name: "Host/Hostess", editSchedule: false, acceptDenyShift: false, scheduleable: true)
+Position.create(name: "Cook", editSchedule: false, acceptDenyShift: false, scheduleable: true)
+Position.create(name: "Manager", editSchedule: true, acceptDenyShift: true, scheduleable: true)
 
-#No Users Tied to Store 3
+# create date variables of work week
+d0 = Date.new(2016, 12, 12)
+d1 = Date.new(2016, 12, 13)
+d2 = Date.new(2016, 12, 14)
+d3 = Date.new(2016, 12, 15)
+d4 = Date.new(2016, 12, 16)
+d5 = Date.new(2016, 12, 17)
+d6 = Date.new(2016, 12, 18)
 
+# create time variables for shifts
+t0 = Date.strptime("05-14-2009 19:00","%m-%d-%Y %H:%M").to_time
+t1 = Date.strptime("05-14-2009 19:00","%m-%d-%Y %H:%M").to_time
+t2 = Date.strptime("05-14-2009 19:00","%m-%d-%Y %H:%M").to_time
+t3 = Date.strptime("05-14-2009 19:00","%m-%d-%Y %H:%M").to_time
+t4 = Date.strptime("05-14-2009 19:00","%m-%d-%Y %H:%M").to_time
+t5 = Date.strptime("05-14-2009 19:00","%m-%d-%Y %H:%M").to_time
+t6 = Date.strptime("05-14-2009 19:00","%m-%d-%Y %H:%M").to_time
+t7 = Date.strptime("05-14-2009 19:00","%m-%d-%Y %H:%M").to_time
+t8 = Date.strptime("05-14-2009 19:00","%m-%d-%Y %H:%M").to_time
 
-#Position.create(name: nil, editSchedule: nil, acceptDenyShift: nil, scheduleable: nil, store_id: nil)
-## Naming convention: E = editSchedule A = acceptDenyShift S = scheduleable
-
-#Store 1
-Position.create(name: 'EAS Manager', editSchedule: true, acceptDenyShift: true, scheduleable: true, store_id: 1)
-Position.create(name: 'EA Manager', editSchedule: true, acceptDenyShift: true, scheduleable: false, store_id: 1)
-Position.create(name: 'ES Manager', editSchedule: true, acceptDenyShift: false, scheduleable: true, store_id: 1)
-Position.create(name: 'AS Manager', editSchedule: false, acceptDenyShift: true, scheduleable: true, store_id: 1)
-Position.create(name: 'E Manager', editSchedule: true, acceptDenyShift: false, scheduleable: false, store_id: 1)
-Position.create(name: 'S Manager', editSchedule: false, acceptDenyShift: false, scheduleable: true, store_id: 1)
-Position.create(name: 'A Manager', editSchedule: false, acceptDenyShift: true, scheduleable: false, store_id: 1)
-Position.create(name: 'Employee', editSchedule: false, acceptDenyShift: false, scheduleable: false, store_id: 1)
-
-#Store 2
-Position.create(name: 'EAS Manager', editSchedule: true, acceptDenyShift: true, scheduleable: true, store_id: 2)
-Position.create(name: 'EA Manager', editSchedule: true, acceptDenyShift: true, scheduleable: false, store_id: 2)
-Position.create(name: 'ES Manager', editSchedule: true, acceptDenyShift: false, scheduleable: true, store_id: 2)
-Position.create(name: 'AS Manager', editSchedule: false, acceptDenyShift: true, scheduleable: true, store_id: 2)
-Position.create(name: 'E Manager', editSchedule: true, acceptDenyShift: false, scheduleable: false, store_id: 2)
-Position.create(name: 'S Manager', editSchedule: false, acceptDenyShift: false, scheduleable: true, store_id: 2)
-Position.create(name: 'A Manager', editSchedule: false, acceptDenyShift: true, scheduleable: false, store_id: 2)
-Position.create(name: 'Employee', editSchedule: false, acceptDenyShift: false, scheduleable: false, store_id: 2)
-
-
-#Schedule.create(user_id: nil, position_id: nil, available: nil, date: nil, startTime: nil, endTime: nil)
-
-#AM
-##Store 1
-Schedule.create(user_id: 1, position_id: 1, available: false, date: '10/27/2016', startTime: '6:00am', endTime: '4:00pm')
-Schedule.create(user_id: 2, position_id: 8, available: false, date: '10/27/2016', startTime: '6:00am', endTime: '4:00pm')
-
-Schedule.create(user_id: 5, position_id: 1, available: false, date: '10/27/2016', startTime: '6:00am', endTime: '4:00pm')
-Schedule.create(user_id: 6, position_id: 8, available: false, date: '10/27/2016', startTime: '6:00am', endTime: '4:00pm')
-Schedule.create(user_id: 7, position_id: 8, available: false, date: '10/27/2016', startTime: '6:00am', endTime: '4:00pm')
-Schedule.create(user_id: 8, position_id: 8, available: true, date: '10/27/2016', startTime: '6:00am', endTime: '4:00pm')
-Schedule.create(user_id: 9, position_id: 8, available: true, date: '10/27/2016', startTime: '6:00am', endTime: '4:00pm')
-
-#PM
-##Store 2
-Schedule.create(user_id: 3, position_id: 1, available: false, date: '10/27/2016', startTime: '4:00pm', endTime: '11:00pm')
-Schedule.create(user_id: 4, position_id: 8, available: false, date: '10/27/2016', startTime: '4:00pm', endTime: '11:00pm')
-
-Schedule.create(user_id: 10, position_id: 1, available: false, date: '10/27/2016', startTime: '4:00pm', endTime: '11:00pm')
-Schedule.create(user_id: 11, position_id: 3, available: false, date: '10/27/2016', startTime: '4:00pm', endTime: '11:00pm')
-Schedule.create(user_id: 12, position_id: 4, available: false, date: '10/27/2016', startTime: '4:00pm', endTime: '11:00pm')
-Schedule.create(user_id: 13, position_id: 8, available: false, date: '10/27/2016', startTime: '4:00pm', endTime: '11:00pm')
-Schedule.create(user_id: 14, position_id: 6, available: false, date: '10/27/2016', startTime: '4:00pm', endTime: '11:00pm')
-
-
-#Request.create(schedule_id: nil, user_id: nil) **In this case the user_id is who is doing the requesting**
-Request.create(schedule_id: 6, user_id: 13)
-Request.create(schedule_id: 6, user_id: 14)
-Request.create(schedule_id: 7, user_id: 6)
+# create schedules for each user
+# create waiter shifts
+# create Amy's shifts
+Schedule.create(  available: false, date: d0, startTime: t0, endTime: t5)
+Schedule.create(  available: true, date: d1, startTime: t0, endTime: t5)
+Schedule.create(  available: true, date: d2, startTime: t1, endTime: t8)
+Schedule.create(  available: false, date: d5, startTime: t3, endTime: t8)
+Schedule.create(  available: false, date: d6, startTime: t3, endTime: t7)
+# create Jims's 
+Schedule.create(  available: false, date: d0, startTime: t2, endTime: t7)
+Schedule.create(  available: false, date: d2, startTime: t4, endTime: t8)
+Schedule.create(  available: false, date: d5, startTime: t3, endTime: t7)
+# create James's
+Schedule.create(  available: false, date: d1, startTime: t0, endTime: t4)
+Schedule.create(  available: false, date: d3, startTime: t1, endTime: t8)
+Schedule.create(  available: false, date: d4, startTime: t1, endTime: t7)
+Schedule.create(  available: false, date: d5, startTime: t2, endTime: t6)
+# create waiter 
+# create Dontcho
+Schedule.create(  available: false, date: d0, startTime: t0, endTime: t4)
+Schedule.create(  available: true, date: d3, startTime: t1, endTime: t8)
+Schedule.create(  available: true, date: d4, startTime: t1, endTime: t7)
+Schedule.create(  available: false, date: d6, startTime: t2, endTime: t6)
+# create Russ's 
+Schedule.create(  available: false, date: d1, startTime: t2, endTime: t7)
+Schedule.create(  available: false, date: d2, startTime: t4, endTime: t8)
+Schedule.create(  available: false, date: d5, startTime: t3, endTime: t7)
+# create Host/Ho
+# create Antwane
+Schedule.create(  available: false, date: d0, startTime: t0, endTime: t5)
+Schedule.create(  available: false, date: d1, startTime: t0, endTime: t5)
+Schedule.create(  available: false, date: d2, startTime: t1, endTime: t8)
+Schedule.create(  available: false, date: d5, startTime: t3, endTime: t8)
+Schedule.create(  available: false, date: d6, startTime: t3, endTime: t7)
+# create Tony's 
+Schedule.create(  available: false, date: d1, startTime: t2, endTime: t7)
+Schedule.create(  available: false, date: d3, startTime: t4, endTime: t8)
+Schedule.create(  available: false, date: d6, startTime: t3, endTime: t7)
+# create Hillary
+Schedule.create(  available: false, date: d0, startTime: t2, endTime: t7)
+Schedule.create(  available: false, date: d5, startTime: t4, endTime: t8)
+Schedule.create(  available: false, date: d6, startTime: t3, endTime: t7)
+# create Cooks s
+# create Ben's s
+Schedule.create(  available: false, date: d0, startTime: t0, endTime: t5)
+Schedule.create(  available: false, date: d1, startTime: t0, endTime: t5)
+Schedule.create(  available: false, date: d3, startTime: t1, endTime: t8)
+Schedule.create(  available: false, date: d5, startTime: t3, endTime: t8)
+Schedule.create(  available: false, date: d6, startTime: t3, endTime: t7)
+# create Poukey'
+Schedule.create(  available: false, date: d0, startTime: t0, endTime: t5)
+Schedule.create(  available: false, date: d2, startTime: t0, endTime: t5)
+Schedule.create(  available: false, date: d4, startTime: t0, endTime: t8)
+Schedule.create(  available: false, date: d5, startTime: t0, endTime: t8)
+Schedule.create(  available: false, date: d6, startTime: t3, endTime: t7)
+# create Managers Shifts
+# create Bobby's shifts
+#Schedule.create(user: 11, position: 5, available: false, date: d0, startTime: t0, endTime: t5)
+#Schedule.create(user: 11, position: 5, available: false, date: d1, startTime: t0, endTime: t5)
+#Schedule.create(user: 11, position: 5, available: false, date: d3, startTime: t1, endTime: t8)
+#Schedule.create(user: 11, position: 5, available: false, date: d5, startTime: t3, endTime: t8)
+#Schedule.create(user: 11, position: 5, available: false, date: d6, startTime: t3, endTime: t8)
