@@ -1,2 +1,7 @@
-<h1>Home</h1>
-<p>This is the home page. Woo.</p>
+<h1>[This is the main landing page.]</h1>
+<p>[Administrators will be shown some buttons.]</p>
+<p>[Regular users will be shown some other buttons.]</p>
+
+<%= button_to "View Schedule", schedules_path, :method => "get" %>
+<%= button_to "View Users", users_path, :method => "get" %>
+<%= button_to "View Positions", positions_path, :method => "get" %>
