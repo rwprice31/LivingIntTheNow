@@ -45,21 +45,21 @@ number_of_stores.times do |s|
     #Schedule.create(user_id: nil, position_id: nil, available: nil, date: nil, startTime: nil, endTime: nil)
     number_of_employees.times do |n|
         if(n%2 == 0) then
-            Schedule.create(user_id: n+1, position_id: employeePosition.id, available: false, date: "10/23/2016", startTime: "6:00am", endTime: "4:00pm")
-            Schedule.create(user_id: n+1, position_id: employeePosition.id, available: false, date: "10/24/2016", startTime: "4:00pm", endTime: "11:00pm")
-            Schedule.create(user_id: n+1, position_id: employeePosition.id, available: false, date: "10/25/2016", startTime: "6:00am", endTime: "4:00pm")
-            Schedule.create(user_id: n+1, position_id: employeePosition.id, available: false, date: "10/26/2016", startTime: "4:00pm", endTime: "11:00pm")
-            Schedule.create(user_id: n+1, position_id: employeePosition.id, available: false, date: "10/27/2016", startTime: "6:00am", endTime: "4:00pm")
-            Schedule.create(user_id: n+1, position_id: employeePosition.id, available: false, date: "10/28/2016", startTime: "4:00pm", endTime: "11:00pm")
-            Schedule.create(user_id: n+1, position_id: employeePosition.id, available: false, date: "10/29/2016", startTime: "6:00am", endTime: "4:00pm")
+            Schedule.create(user_id: n+1, position_id: employeePosition.id, available: false, date: Date.new(2016, 10, 23), startTime: "6:00am", endTime: "4:00pm")
+            Schedule.create(user_id: n+1, position_id: employeePosition.id, available: false, date: Date.new(2016, 10, 24), startTime: "4:00pm", endTime: "11:00pm")
+            Schedule.create(user_id: n+1, position_id: employeePosition.id, available: false, date: Date.new(2016, 10, 25), startTime: "6:00am", endTime: "4:00pm")
+            Schedule.create(user_id: n+1, position_id: employeePosition.id, available: false, date: Date.new(2016, 10, 26), startTime: "4:00pm", endTime: "11:00pm")
+            Schedule.create(user_id: n+1, position_id: employeePosition.id, available: false, date: Date.new(2016, 10, 27), startTime: "6:00am", endTime: "4:00pm")
+            Schedule.create(user_id: n+1, position_id: employeePosition.id, available: false, date: Date.new(2016, 10, 28), startTime: "4:00pm", endTime: "11:00pm")
+            Schedule.create(user_id: n+1, position_id: employeePosition.id, available: false, date: Date.new(2016, 10, 29), startTime: "6:00am", endTime: "4:00pm")
         else 
-            Schedule.create(user_id: n+1, position_id: employeePosition.id, available: false, date: "10/23/2016", startTime: "4:00pm", endTime: "11:00pm")
-            Schedule.create(user_id: n+1, position_id: employeePosition.id, available: false, date: "10/24/2016", startTime: "6:00am", endTime: "4:00pm")
-            Schedule.create(user_id: n+1, position_id: employeePosition.id, available: false, date: "10/25/2016", startTime: "4:00pm", endTime: "11:00pm")
-            Schedule.create(user_id: n+1, position_id: employeePosition.id, available: false, date: "10/26/2016", startTime: "6:00am", endTime: "4:00pm")
-            Schedule.create(user_id: n+1, position_id: employeePosition.id, available: false, date: "10/27/2016", startTime: "4:00pm", endTime: "11:00pm")
-            Schedule.create(user_id: n+1, position_id: employeePosition.id, available: false, date: "10/28/2016", startTime: "6:00am", endTime: "4:00pm")
-            Schedule.create(user_id: n+1, position_id: employeePosition.id, available: false, date: "10/29/2016", startTime: "4:00pm", endTime: "11:00pm")
+            Schedule.create(user_id: n+1, position_id: employeePosition.id, available: false, date: Date.new(2016, 10, 23), startTime: "4:00pm", endTime: "11:00pm")
+            Schedule.create(user_id: n+1, position_id: employeePosition.id, available: false, date: Date.new(2016, 10, 24), startTime: "6:00am", endTime: "4:00pm")
+            Schedule.create(user_id: n+1, position_id: employeePosition.id, available: false, date: Date.new(2016, 10, 25), startTime: "4:00pm", endTime: "11:00pm")
+            Schedule.create(user_id: n+1, position_id: employeePosition.id, available: false, date: Date.new(2016, 10, 26), startTime: "6:00am", endTime: "4:00pm")
+            Schedule.create(user_id: n+1, position_id: employeePosition.id, available: false, date: Date.new(2016, 10, 27), startTime: "4:00pm", endTime: "11:00pm")
+            Schedule.create(user_id: n+1, position_id: employeePosition.id, available: false, date: Date.new(2016, 10, 28), startTime: "6:00am", endTime: "4:00pm")
+            Schedule.create(user_id: n+1, position_id: employeePosition.id, available: false, date: Date.new(2016, 10, 29), startTime: "4:00pm", endTime: "11:00pm")
         end
     end
 end
