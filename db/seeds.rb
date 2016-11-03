@@ -25,7 +25,7 @@ number_of_stores.times do |s|
     #Position.create(name: nil, editSchedule: nil, acceptDenyShift: nil, scheduleable: nil, store_id: nil)
     ## Naming convention: E = editSchedule A = acceptDenyShift S = scheduleable
 
-    Position.create(name: "EAS Manager", editSchedule: true, acceptDenyShift: true, scheduleable: true, store_id: store.id)
+    adminDefaultPosition = Position.create(name: "EAS Manager", editSchedule: true, acceptDenyShift: true, scheduleable: true, store_id: store.id)
     Position.create(name: "EA Manager", editSchedule: true, acceptDenyShift: true, scheduleable: false, store_id: store.id)
     Position.create(name: "ES Manager", editSchedule: true, acceptDenyShift: false, scheduleable: true, store_id: store.id)
     Position.create(name: "AS Manager", editSchedule: false, acceptDenyShift: true, scheduleable: true, store_id: store.id)
@@ -37,11 +37,13 @@ number_of_stores.times do |s|
 
     #User.create(email: nil, password: nil, firstName: nil, lastName: nil, active: nil, admin: nil, phone: nil, store_id: nil)
     number_of_admins.times do |n| #Admins
-        User.create(email: "example-admin-email#{n}@example.com", password: "Password", firstName: "Example Admin #{n}", lastName: "Admin", active: true, admin: true, phone: "+1(777)555-6789", store_id: store.id)
+        admin = User.create(email: "example-admin-email#{n}@example.com", password: "Password", firstName: "Example Admin #{n}", lastName: "Admin", active: true, admin: true, phone: "+1(777)555-6789", store_id: store.id)
+        admin.position<< adminDefaultPosition
     end
     
     number_of_employees.times do |n| #Employees
-        user = User.create(email: "example-user-email#{n}@example.com", password: "Password", firstName: "Example User #{n}", lastName: "Employee", active: true, admin: false, phone: "+1(777)555-6789", store_id: s+1)
+        user = User.create(email: "example-user-email#{n}@example.com", password: "Password", firstName: "Example User #{n}", lastName: "Employee", active: true, admin: false, phone: "+1(777)555-6789", store_id: store.id)
+        user.position<< employeePosition
         
          #Schedule.create(user_id: nil, position_id: nil, available: nil, date: nil, startTime: nil, endTime: nil)
         if(n%2 == 0) then
