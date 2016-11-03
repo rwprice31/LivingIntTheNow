@@ -45,7 +45,7 @@ number_of_stores.times do |s|
     count = 0
     positionArray.each do |position|
         number_of_employees.times do |n| #Employees
-            user = User.create(email: "example-user-email-p#{count}.#{n}@example.com", password: "Password", firstName: "Example User #{n}", lastName: "Employee", active: true, admin: false, phone: "+1(777)555-6789", store_id: store.id)
+            user = User.create(email: "example-user-email-#{s}.#{count}.#{n}@example.com", password: "Password", firstName: "Example User #{s}.#{count}.#{n}", lastName: "Employee", active: true, admin: false, phone: "+1(777)555-6789", store_id: store.id)
             user.position<< position
             
              #Schedule.create(user_id: nil, position_id: nil, available: nil, date: nil, startTime: nil, endTime: nil)
