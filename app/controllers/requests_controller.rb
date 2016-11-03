@@ -1,8 +1,41 @@
 class RequestsController < ApplicationController
   before_action :set_request, only: [:show, :edit, :update, :destroy]
+  #before_filter :authenticate_user! ####################################### This is for Devise
 
   def availableShifts
-    @schedules = Schedule.where(available: true)
+    current_user = User.find(2) ############### CHANGE ONCE DEVISE IS READY
+    @schedule = Schedule.where(available: true)
+    shifts = current_user.schedule
+    #Write something to filter out the conflicting shifts
+    
+    #Compare each user.shift to each available shift
+    @schedule.each do |available|
+      shifts.each do |shift|
+        
+        #Check the available shift's date matches the user's shift's date (We are looking for conflicts)
+        if (available.date == shift.date) then
+          
+          #Check the available shift's start and end time to see if they come before the user shift's start time
+          if(available.startTime.utc.strftime('%H%M') < shift.startTime.utc.strftime('%H%M'))
+            if(available.endTime.utc.strftime('%H%M') <= shift.startTime.utc.strftime('%H%M'))
+              puts available.startTime.utc.strftime('%H%M') + " - " + available.endTime.utc.strftime('%H%M')
+              puts shift.startTime.utc.strftime('%H%M') + " - " + shift.endTime.utc.strftime('%H%M')
+              puts "-Shift is available-"
+            else
+              puts "-Shift is unavailable-"
+            end
+            
+          #Otherwise check that the available shift's start time comes after the user shift's end time
+          elsif(available.startTime >= shift.endTime)
+            puts available.startTime.utc.strftime('%H%M') + " - " + available.endTime.utc.strftime('%H%M')
+            puts shift.startTime.utc.strftime('%H%M') + " - " + shift.endTime.utc.strftime('%H%M')
+            puts "-Shift is available-"
+          else
+            puts "-Shift is unavailable-"
+          end
+        end
+      end
+    end
   end
 
   # GET /requests
