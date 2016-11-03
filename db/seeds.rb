@@ -26,18 +26,18 @@ number_of_stores.times do |s|
     ## Naming convention: E = editSchedule A = acceptDenyShift S = scheduleable
 
     Position.create(name: "EAS Manager", editSchedule: true, acceptDenyShift: true, scheduleable: true, store_id: store.id)
-    Position.create(name: "EA Manager", editSchedule: true, acceptDenyShift: true, scheduleable: false, store_id: s+1)
-    Position.create(name: "ES Manager", editSchedule: true, acceptDenyShift: false, scheduleable: true, store_id: s+1)
-    Position.create(name: "AS Manager", editSchedule: false, acceptDenyShift: true, scheduleable: true, store_id: s+1)
-    Position.create(name: "E Manager", editSchedule: true, acceptDenyShift: false, scheduleable: false, store_id: s+1)
-    Position.create(name: "S Manager", editSchedule: false, acceptDenyShift: false, scheduleable: true, store_id: s+1)
-    Position.create(name: "A Manager", editSchedule: false, acceptDenyShift: true, scheduleable: false, store_id: s+1)
+    Position.create(name: "EA Manager", editSchedule: true, acceptDenyShift: true, scheduleable: false, store_id: store.id)
+    Position.create(name: "ES Manager", editSchedule: true, acceptDenyShift: false, scheduleable: true, store_id: store.id)
+    Position.create(name: "AS Manager", editSchedule: false, acceptDenyShift: true, scheduleable: true, store_id: store.id)
+    Position.create(name: "E Manager", editSchedule: true, acceptDenyShift: false, scheduleable: false, store_id: store.id)
+    Position.create(name: "S Manager", editSchedule: false, acceptDenyShift: false, scheduleable: true, store_id: store.id)
+    Position.create(name: "A Manager", editSchedule: false, acceptDenyShift: true, scheduleable: false, store_id: store.id)
     
-    employeePosition = Position.create(name: "Employee", editSchedule: false, acceptDenyShift: false, scheduleable: false, store_id: s+1)
+    employeePosition = Position.create(name: "Employee", editSchedule: false, acceptDenyShift: false, scheduleable: false, store_id: store.id)
 
     #User.create(email: nil, password: nil, firstName: nil, lastName: nil, active: nil, admin: nil, phone: nil, store_id: nil)
     number_of_admins.times do |n| #Admins
-        User.create(email: "example-admin-email#{n}@example.com", password: "Password", firstName: "Example Admin #{n}", lastName: "Admin", active: true, admin: true, phone: "+1(777)555-6789", store_id: s+1)
+        User.create(email: "example-admin-email#{n}@example.com", password: "Password", firstName: "Example Admin #{n}", lastName: "Admin", active: true, admin: true, phone: "+1(777)555-6789", store_id: store.id)
     end
     
     number_of_employees.times do |n| #Employees
