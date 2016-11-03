@@ -18,8 +18,8 @@
   <tbody>
     <% @schedules.each do |schedule| %>
       <tr>
-        <td><%= schedule.user %></td>
-        <td><%= schedule.position %></td>
+        <td><%= schedule.user.firstName + " " + schedule.user.lastName %></td>
+        <td><%= schedule.position.name %></td>
         <td><%= schedule.available %></td>
         <td><%= schedule.date %></td>
         <td><%= schedule.startTime %></td>

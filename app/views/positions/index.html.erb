@@ -21,7 +21,7 @@
         <td><%= position.editSchedule %></td>
         <td><%= position.acceptDenyShift %></td>
         <td><%= position.scheduleable %></td>
-        <td><%= position.store %></td>
+        <td><%= position.store.companyName %></td>
         <td><%= link_to 'Show', position %></td>
         <td><%= link_to 'Edit', edit_position_path(position) %></td>
         <td><%= link_to 'Destroy', position, method: :delete, data: { confirm: 'Are you sure?' } %></td>
