@@ -5,11 +5,17 @@ class SchedulesController < ApplicationController
   # GET /schedules.json
   def index
     @schedules = Schedule.all
+    @date = "2016-10-23"
   end
 
   # GET /schedules/1
   # GET /schedules/1.json
   def show
+    @date = Date.new(2016,10,23) #TODO: paramitize date
+    @staff = User.where("active = ? AND store_id = ?", true, Store.find(1))  #TODO: paramitize store
+    @weekSchedule = Schedule.where("date IN (?) AND user_id IN (?)", (Date.new(2016,10,23)..Date.new(2016,10,23).next_day(6)),  (User.where("active = ? AND store_id = ?", true, Store.find(1)).ids))
+    @positions = Position.where("scheduleable = ? AND store_id = ?", true, Store.find(1)) #TODO: paramitize store
+   
   end
 
   # GET /schedules/new
@@ -64,7 +70,7 @@ class SchedulesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_schedule
-      @schedule = Schedule.find(params[:id])
+      @schedule = Schedule.find(1)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

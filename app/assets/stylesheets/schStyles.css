@@ -1,0 +1,206 @@
+
+
+.screenContainer{
+    margin-left: 2%;
+    margin-right: 2%;
+    background-color:#b5c0d1;
+}
+
+.tableContainer{
+    background-color: #ced6e2;
+    padding: 10px; 
+    margin:10px;
+}
+
+.myTable{
+    width: 100%;           
+}
+
+.noPad {
+   padding: 0 !important;
+   margin: 0 !important;
+}
+
+.myTd{
+    border: 1px solid #888888;
+    background-color:#eaeaea;
+    width: 12%;
+    text-align: center;
+    font-size: .8em;
+    height: 41px;
+    position: relative;
+    
+}
+
+
+
+.myTh{
+    border: 1px solid blue;
+    background-color:#dee1e5;
+    width: 12%;
+    text-align: center;
+}
+
+.timeText{
+    margin-top: 10px;
+    font-size: 1em;
+        position: relative;
+bottom: -4px;
+}
+
+.empColumn{
+    width: 16%;
+}
+
+.time{
+
+
+}
+
+.positionHead{
+    text-align: center;
+    color: aliceblue;
+    background-color:#727b89;
+    width: 2%;
+}
+
+.editBut{
+    width: 100%;
+    height: 50%;
+    background-color:#9aa6ba;
+    color: white;
+    font-size: .8em;
+    padding-left: 2px;
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+}
+.createBut{
+    width: 100%;
+    height: 20px;
+    display: inline-block;
+    white-space: nowrap;
+    position: absolute;
+    left: 0px;
+    padding-left: 1px;
+}
+
+.createBut:hover{
+     background: #f3f3f3;
+}
+.editBut:hover{
+    background: #5a769a;
+}
+.truncateWarning{
+    float:right;
+    font-size: .75em;
+    padding-top: 5px;
+    padding-right: 2%;
+    font-weight: 100;
+    
+}
+
+.modal-content{
+    height: 175px;
+    width: 300px;
+    padding: 0px;
+}
+#submitBut{
+    float:right;
+    margin-right: 15px;
+    margin-top: 20px;
+}
+#cancelBut{
+    float:right;
+    margin-right: 20px;
+    margin-top: 20px;
+}
+.fRight{
+    float: right;
+    padding: 0px;
+}
+
+.modal-title{
+    height: 25px;
+    padding: 0px;
+}
+
+.modal-header{
+    height: 45px;
+    padding: 10px;
+    background-color: darkgray;
+}
+
+.modal-body{
+    height: 75px;
+    padding: 0px;
+    padding-left: 10px;
+    padding-top: 0px;
+}
+
+.modal-footer{
+    height: 53px;
+    padding: 0px;
+    padding-right: 10px;
+    padding-top: 0px;
+    background-color: darkgray;
+}
+
+.lg, .lg { display: inline-block; }
+.sm, .sm { display: none; }
+
+@media (max-width: 767px) { 
+     .lg { 
+        display: none; 
+    }
+    .sm { 
+        display: inline-block; 
+        width: 14.28%;
+    }
+    .editBut{
+        font-size: .8em;
+    }
+    .createBut{
+        font-size: .75em;
+        padding-left: 2px;
+    }
+    .empHead.sm{
+        width: 100%;  
+    }
+    .myTd{
+        border: 0px; 
+        height: 20px;
+    }
+    .fRight{
+        float: left;
+    }
+    .screenContainer{ 
+        margin-left: 0%;
+        margin-right: 0%;
+        padding: 0px; 
+        margin: 0px;
+    }
+    .modal-content{
+        height: 215px;
+        width: 225px;
+        padding: 0px;
+    }
+    .modal-body{
+        height: 112px;
+
+    }
+    .modal-footer{
+        height: 56px;
+    }
+    .tableContainer{
+        padding: 0px; 
+        margin: 0px;
+    }
+    .editBut{
+        width: 100%;
+        height: 100%;
+        background-color:#9aa6ba;
+        color: white;
+        font-size: .9em;
+        
+    }
