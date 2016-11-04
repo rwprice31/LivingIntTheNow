@@ -39,10 +39,14 @@
   </div>
 
   <div class="field">
+    <%= f.label :store_ID%><br />
+    <%= f.text_field :store_id %>
+  </div>
+
+  <div class="field">
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
-
   <div class="actions">
     <%= f.submit "Sign up" %>
   </div>
