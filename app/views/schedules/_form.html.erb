@@ -12,13 +12,13 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :user_id %>
-    <%= f.text_field :user_id %>
+    <%# f.label schedule.inspect %>
+    <%= f.hidden_field :user_id, :value => schedule.user_id %>
   </div>
 
   <div class="field">
-    <%= f.label :position_id %>
-    <%= f.text_field :position_id %>
+    <%# f.label :position_id %>
+    <%= f.hidden_field :position_id %>
   </div>
 
   <div class="field">

@@ -15,7 +15,7 @@ class SchedulesController < ApplicationController
     @staff = User.where("active = ? AND store_id = ?", true, Store.find(1))  #TODO: paramitize store
     @weekSchedule = Schedule.where("date IN (?) AND user_id IN (?)", (Date.new(2016,10,23)..Date.new(2016,10,23).next_day(6)),  (User.where("active = ? AND store_id = ?", true, Store.find(1)).ids))
     @positions = Position.where("scheduleable = ? AND store_id = ?", true, Store.find(1)) #TODO: paramitize store
-   
+    @schedule = Schedule.new
   end
 
   # GET /schedules/new
