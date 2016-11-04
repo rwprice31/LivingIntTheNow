@@ -27,10 +27,11 @@ ActiveRecord::Schema.define(version: 20161102012913) do
   end
 
   create_table "positions_users", id: false, force: :cascade do |t|
-    t.integer "position_id"
-    t.integer "user_id"
-    t.index ["position_id"], name: "index_positions_users_on_position_id", using: :btree
-    t.index ["user_id"], name: "index_positions_users_on_user_id", using: :btree
+
+    t.integer "position_id", null: false
+    t.integer "user_id",     null: false
+    t.index ["position_id", "user_id"], name: "index_positions_users_on_position_id_and_user_id", using: :btree
+    t.index ["user_id", "position_id"], name: "index_positions_users_on_user_id_and_position_id", using: :btree
   end
 
   create_table "requests", force: :cascade do |t|
