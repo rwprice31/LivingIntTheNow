@@ -25,26 +25,6 @@ class SchedulesController < ApplicationController
 
   # GET /schedules/1/edit
   def edit
-     @schedule = Schedule.all
-
-  # respond_to do |format|
-  #   format.html { render(:text => "not implemented") }
-  #   format.js {render 'show_modal'}
-  # end
-
-  # respond_to do |format|
-  # if @schedule.save
-  #     format.html do
-  #       format.js {render 'show_modal'}
-  #       #redirect_to '/'
-  #     end
-  #     format.json { render json: @schedule.to_json }
-  #   else
-  #     format.html { render 'show_modal'} ## Specify the format in which you are rendering "new" page
-  #     format.json { render json: @reservation.errors } ## You might want to specify a json format as well
-  #   end
-#end
-
   end
 
   # POST /schedules
@@ -86,14 +66,13 @@ class SchedulesController < ApplicationController
       format.json { head :no_content }
     end
   end
-  
-
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_schedule
-      @schedule = Schedule.find(3)
+      @schedule = Schedule.find(1)
     end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def schedule_params
       params.require(:schedule).permit(:user_id, :position_id, :available, :date, :startTime, :endTime)
