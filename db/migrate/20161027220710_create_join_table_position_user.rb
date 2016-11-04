@@ -4,8 +4,7 @@ class CreateJoinTablePositionUser < ActiveRecord::Migration[5.0]
       t.integer :position_id
       t.integer :user_id
     end
+    add_index :positions_users, :user_id
+    add_index :positions_users, :position_id
   end
 end
-
-index :positions_users, :user_id
-index :positions_users, :position_id

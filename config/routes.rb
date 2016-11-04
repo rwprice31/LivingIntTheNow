@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get '/contact', to: 'static_pages#contact'
   get '/home',    to: 'static_pages#home'
 
-  devise_for :users
+  devise_for :users, :controllers => {registrations: 'registrations'}
   resources :requests
   resources :schedules
   resources :positions
