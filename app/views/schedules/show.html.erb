@@ -2,38 +2,7 @@
 
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>User:</strong>
-  <%= @schedule.user %>
-</p>
 
-<p>
-  <strong>Position:</strong>
-  <%= @schedule.position %>
-</p>
-
-<p>
-  <strong>Available:</strong>
-  <%= @schedule.available %>
-</p>
-
-<p>
-  <strong>Date:</strong>
-  <%= @schedule.date %>
-</p>
-
-<p>
-  <strong>Starttime:</strong>
-  <%= @schedule.startTime %>
-</p>
-
-<p>
-  <strong>Endtime:</strong>
-  <%= @schedule.endTime %>
-</p>
-
-<%= link_to 'Edit', edit_schedule_path(@schedule) %> |
-<%= link_to 'Back', schedules_path %>
 
 
     <div class="screenContainer">
@@ -77,45 +46,43 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Create Shift</h4>
+          <h4 class="modal-title">Edit Shift</h4>
         </div>
         <div class="modal-body">
 
-        <form  >
-            <fieldset>
-                 <div class="row">
+        <!--<form  >-->
+        <!--    <fieldset>-->
+        <!--         <div class="row">-->
                      
                          
-                <section class="col-sm-4 col-xs-12 "><label for="startT" class="fRight noPad">Start Time</label></section>
-                <section class="col-sm-8 col-xs-12 "><input type="time" name="startT" id="startT"  
-                                                       class="time  "></section>
+        <!--        <section class="col-sm-4 col-xs-12 "><label for="startT" class="fRight noPad">Start Time</label></section>-->
+        <!--        <section class="col-sm-8 col-xs-12 "><input type="time" name="startT" id="startT"  -->
+        <!--                                               class="time  "></section>-->
                       
-                <section class="col-sm-4 col-xs-12"><label for="endT" class="fRight noPad">End Time</label></section>
-                <section class="col-sm-8 col-xs-12 "><input type="time" name="endT" id="endT"  
-                                                       class="time  "></section>
-                
-                     
-                <!-- Development Value Display to turn on remove comment here and in schedule.js    
-                <section class="col-sm-4 col-xs-12"><label for="devInfo" class="fRight noPad">Dev Info</label></section>
-                <section class="col-sm-8 col-xs-12 " id="devInfo"></section>
-                -->
+        <!--        <section class="col-sm-4 col-xs-12"><label for="endT" class="fRight noPad">End Time</label></section>-->
+        <!--        <section class="col-sm-8 col-xs-12 "><input type="time" name="endT" id="endT"  -->
+        <!--                                               class="time  "></section>-->
 
-                <input type="hidden" id="date" >
-                <input type="hidden" id="userId" >
+        <!--        <input type="hidden" id="date" >-->
+        <!--        <input type="hidden" id="userId" >-->
                      
-              <!-- Allow form submission with keyboard without duplicating the dialog button -->
-                     
-              
+        <!--      <input type="button" id="cancelBut"  data-dismiss="modal" value="Cancel">-->
+        <!--      <input type="submit" id="submitBut" onclick="return printShiftView();" data-dismiss="modal">-->
               
                    
-                </div><!-- row -->
-            </fieldset>
-        </form>
+        <!--        </div>-->
+        <!--    </fieldset>-->
+        <!--</form>-->
+            
+ 
+        <%= render 'form', schedule: @schedule %>
+  
+            
             
         </div>
         <div class="modal-footer">
-              <input type="submit" id="submitBut" onclick="return printShiftView();" data-dismiss="modal">
-              <input type="button" id="cancelBut"  data-dismiss="modal" value="Cancel">
+          
+              
         </div>
       </div>      
     </div>
