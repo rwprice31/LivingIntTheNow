@@ -1,19 +1,20 @@
 class SchedulesController < ApplicationController
-  before_action :set_schedule, only: [:show, :edit, :update, :destroy]
+  before_action :set_schedule, only: [:show, :edit, :update]
 
   # GET /schedules
   # GET /schedules.json
   def index
     @schedules = Schedule.all
-    @date = "2016-10-23"
+    @date = "2016-10-24"
   end
 
   # GET /schedules/1
   # GET /schedules/1.json
   def show
-    @date = Date.new(2016,10,23) #TODO: paramitize date
+    @currentUser = User.find(12)  #TODO: paramitize user for user-typing 1=admin other=non-admin
+    @date = Date.new(2016,10,24) #TODO: paramitize date
     @staff = User.where("active = ? AND store_id = ?", true, Store.find(1))  #TODO: paramitize store
-    @weekSchedule = Schedule.where("date IN (?) AND user_id IN (?)", (Date.new(2016,10,23)..Date.new(2016,10,23).next_day(6)),  (User.where("active = ? AND store_id = ?", true, Store.find(1)).ids))
+    @weekSchedule = Schedule.where("date IN (?) AND user_id IN (?)", (Date.new(2016,10,24)..Date.new(2016,10,24).next_day(6)),  (User.where("active = ? AND store_id = ?", true, Store.find(1)).ids))
     @positions = Position.where("scheduleable = ? AND store_id = ?", true, Store.find(1)) #TODO: paramitize store
     @schedule = Schedule.new
   end
@@ -60,9 +61,9 @@ class SchedulesController < ApplicationController
   # DELETE /schedules/1
   # DELETE /schedules/1.json
   def destroy
-    @schedule.destroy
+    @schedule = Schedule.find(params[:id]).destroy
     respond_to do |format|
-      format.html { redirect_to schedules_url, notice: 'Schedule was successfully destroyed.' }
+      format.html { redirect_to :back, notice: 'Schedule was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -70,7 +71,12 @@ class SchedulesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_schedule
-      @schedule = Schedule.find(1)
+      if (params[:id] != "show")
+        @schedule = Schedule.find(params[:id])
+      else
+        @schduele = Schedule.new
+      end
+
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

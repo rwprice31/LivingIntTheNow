@@ -1,5 +1,4 @@
 
-
 //Build & Launch input Modal
 $(function() {
 $('#myModal').on('shown.bs.modal', function(e) {
@@ -7,7 +6,9 @@ $('#myModal').on('shown.bs.modal', function(e) {
     var date = e.relatedTarget.dataset.date; 
     var userId = e.relatedTarget.dataset.user;
     var position = e.relatedTarget.dataset.position;
+    var id = e.relatedTarget.dataset.id;
 
+    
 //get Start Time & if set format for Time standard
 var start = e.relatedTarget.dataset.start;
         if(typeof start != 'undefined'){
@@ -25,25 +26,31 @@ var end = e.relatedTarget.dataset.end;
                 end = "0" + end;  
             };
         };
-        
-    
 
-//temp data for development 
-   // document.getElementById("devInfo").innerHTML = userId + " | " + end;
    
    
 //set form pre-data
-    var startPrint = document.getElementById("schedule_startTime_4i").value;
-     document.getElementById("schedule_startTime_4i").value = start.substring(0, 2);    //hour
-     document.getElementById("schedule_startTime_5i").value = start.substring(3, 5);    //minutes
-     document.getElementById("schedule_endTime_4i").value = end.substring(0,2);     //hour
-     document.getElementById("schedule_endTime_5i").value = end.substring(3,5);     //minutes
      document.getElementById("schedule_date_1i").value = date.substring(0,4);      //year
      document.getElementById("schedule_date_2i").value = date.substring(5,7);      //month
      document.getElementById("schedule_date_3i").value = date.substring(8,10);      //day
      document.getElementById("schedule_user_id").value = userId;
      document.getElementById("schedule_position_id").value = position;
   
+
+    if(typeof id != 'undefined'){
+        document.getElementById("schedule_id").value = id;
+        document.getElementById("schedule_startTime_4i").value = start.substring(0, 2);    //hour
+        document.getElementById("schedule_startTime_5i").value = start.substring(3, 5);    //minutes
+        document.getElementById("schedule_endTime_4i").value = end.substring(0,2);     //hour
+        document.getElementById("schedule_endTime_5i").value = end.substring(3,5);     //minutes
+    }else{
+        document.getElementById("schedule_startTime_4i").value = 11;    //hour
+        document.getElementById("schedule_startTime_5i").value = "00";    //minutes
+        document.getElementById("schedule_endTime_4i").value = 11;     //hour
+        document.getElementById("schedule_endTime_5i").value = "00"; 
+        
+    }
+    
   
 
 });
