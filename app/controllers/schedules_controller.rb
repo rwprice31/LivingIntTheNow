@@ -34,7 +34,7 @@ class SchedulesController < ApplicationController
   def create
     if params[:schedule][:id].present?
       @schedule = Schedule.find(params[:schedule][:id]).update(schedule_params)
-redirect_to :back
+    redirect_to :back
     else
       @schedule = Schedule.new(schedule_params)
     respond_to do |format|
@@ -78,16 +78,11 @@ redirect_to :back
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_schedule
-<<<<<<< HEAD
-      @schedule = Schedule.new
-=======
       if (params[:id] != "show")
         @schedule = Schedule.find(params[:id])
       else
         @schduele = Schedule.all
       end
-
->>>>>>> 16e176b6e1e014a2844270ec0fa217cd9bbbd365
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
