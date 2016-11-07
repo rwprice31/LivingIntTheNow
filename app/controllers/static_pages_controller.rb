@@ -1,4 +1,5 @@
 class StaticPagesController < ApplicationController
+  before_action :authenticate_user!
   def home
   end
 
@@ -10,7 +11,7 @@ class StaticPagesController < ApplicationController
 
   def contact
   end
-  
+
   def welcome
   end
 end

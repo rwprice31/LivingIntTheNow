@@ -10,19 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161027220710) do
+ActiveRecord::Schema.define(version: 20161102012913) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "locations", force: :cascade do |t|
-    t.integer  "store_id"
-    t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["store_id"], name: "index_locations_on_store_id", using: :btree
-    t.index ["user_id"], name: "index_locations_on_user_id", using: :btree
-  end
 
   create_table "positions", force: :cascade do |t|
     t.string   "name"
@@ -36,11 +27,10 @@ ActiveRecord::Schema.define(version: 20161027220710) do
   end
 
   create_table "positions_users", id: false, force: :cascade do |t|
-
     t.integer "position_id", null: false
     t.integer "user_id",     null: false
-    t.index ["position_id", "user_id"], name: "index_positions_users_on_position_id_and_user_id", using: :btree
-    t.index ["user_id", "position_id"], name: "index_positions_users_on_user_id_and_position_id", using: :btree
+    t.index ["position_id"], name: "index_positions_users_on_position_id", using: :btree
+    t.index ["user_id"], name: "index_positions_users_on_user_id", using: :btree
   end
 
   create_table "requests", force: :cascade do |t|
@@ -48,8 +38,6 @@ ActiveRecord::Schema.define(version: 20161027220710) do
     t.integer  "user_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.index ["schedule_id"], name: "index_requests_on_schedule_id", using: :btree
-    t.index ["user_id"], name: "index_requests_on_user_id", using: :btree
   end
 
   create_table "schedules", force: :cascade do |t|
@@ -82,9 +70,9 @@ ActiveRecord::Schema.define(version: 20161027220710) do
     t.string   "phone"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.integer  "store_id"
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
-    t.integer  "store_id"
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -98,11 +86,7 @@ ActiveRecord::Schema.define(version: 20161027220710) do
     t.index ["store_id"], name: "index_users_on_store_id", using: :btree
   end
 
-  add_foreign_key "locations", "stores"
-  add_foreign_key "locations", "users"
   add_foreign_key "positions", "stores"
-  add_foreign_key "requests", "schedules"
-  add_foreign_key "requests", "users"
   add_foreign_key "schedules", "positions"
   add_foreign_key "schedules", "users"
   add_foreign_key "users", "stores"
