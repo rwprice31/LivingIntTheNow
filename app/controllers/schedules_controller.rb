@@ -40,6 +40,7 @@ class SchedulesController < ApplicationController
   # PATCH/PUT /schedules/1
   # PATCH/PUT /schedules/1.json
   def update
+    deny_request(@schedule)
     respond_to do |format|
       if @schedule.update(schedule_params)
         format.html { redirect_to @schedule, notice: 'Schedule was successfully updated.' }
@@ -71,4 +72,17 @@ class SchedulesController < ApplicationController
     def schedule_params
       params.require(:schedule).permit(:user_id, :position_id, :available, :date, :startTime, :endTime)
     end
+    
+    def deny_request(schedule)
+      requests = Request.where(schedule_id: schedule.id)
+      
+      requests.each do |request|
+        user = User.where(id: request.user_id).first
+        if(request.user_id == user.id) then
+          puts "###########    I sent an email to " + user.email
+        end
+        request.destroy
+      end
+    end
+  
 end

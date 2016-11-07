@@ -1,5 +1,42 @@
 class RequestsController < ApplicationController
   before_action :set_request, only: [:show, :edit, :update, :destroy]
+  #before_filter :authenticate_user! ####################################### This is for Devise
+
+  def availableShifts
+    current_user = User.find(2) ############### CHANGE ONCE DEVISE IS READY
+    @schedule = Schedule.where(available: true)
+    shifts = current_user.schedule
+    #Write something to filter out the conflicting shifts
+    
+    #Compare each user.shift to each available shift
+    @schedule.each do |available|
+      shifts.each do |shift|
+        
+        #Check the available shift's date matches the user's shift's date (We are looking for conflicts)
+        if (available.date == shift.date) then
+          
+          #Check the available shift's start and end time to see if they come before the user shift's start time
+          if(available.startTime.utc.strftime('%H%M') < shift.startTime.utc.strftime('%H%M'))
+            if(available.endTime.utc.strftime('%H%M') <= shift.startTime.utc.strftime('%H%M'))
+              puts available.startTime.utc.strftime('%H%M') + " - " + available.endTime.utc.strftime('%H%M')
+              puts shift.startTime.utc.strftime('%H%M') + " - " + shift.endTime.utc.strftime('%H%M')
+              puts "-Shift is available-"
+            else
+              puts "-Shift is unavailable-"
+            end
+            
+          #Otherwise check that the available shift's start time comes after the user shift's end time
+          elsif(available.startTime >= shift.endTime)
+            puts available.startTime.utc.strftime('%H%M') + " - " + available.endTime.utc.strftime('%H%M')
+            puts shift.startTime.utc.strftime('%H%M') + " - " + shift.endTime.utc.strftime('%H%M')
+            puts "-Shift is available-"
+          else
+            puts "-Shift is unavailable-"
+          end
+        end
+      end
+    end
+  end
 
   # GET /requests
   # GET /requests.json
@@ -24,8 +61,8 @@ class RequestsController < ApplicationController
   # POST /requests
   # POST /requests.json
   def create
-    @request = Request.new(request_params)
-
+    @request = Request.create(request_params)
+    
     respond_to do |format|
       if @request.save
         format.html { redirect_to @request, notice: 'Request was successfully created.' }
@@ -35,6 +72,10 @@ class RequestsController < ApplicationController
         format.json { render json: @request.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def approve
+    
   end
 
   # PATCH/PUT /requests/1
@@ -58,6 +99,7 @@ class RequestsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to requests_url, notice: 'Request was successfully destroyed.' }
       format.json { head :no_content }
+      #TODO: Add email notification here
     end
   end
 
@@ -70,5 +112,9 @@ class RequestsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def request_params
       params.require(:request).permit(:schedule_id, :user_id)
+    end
+    
+    def approve_request
+      
     end
 end
