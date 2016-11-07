@@ -1,52 +1,21 @@
-<%= form_for(user) do |f| %>
-  <% if user.errors.any? %>
+<%= form_for(schedule) do |f| %>
+  <% if schedule.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+      <h2><%= pluralize(schedule.errors.count, "error") %> prohibited this schedule from being saved:</h2>
 
       <ul>
-      <% user.errors.full_messages.each do |message| %>
+      <% schedule.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :email %>
-    <%= f.text_field :email %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <%= f.text_field :password %>
-  </div>
-
-  <div class="field">
-    <%= f.label :firstName %>
-    <%= f.text_field :firstName %>
-  </div>
-
-  <div class="field">
-    <%= f.label :lastName %>
-    <%= f.text_field :lastName %>
-  </div>
-
-  <div class="field">
-    <%= f.label :active %>
-    <%= f.check_box :active %>
-  </div>
-
-  <div class="field">
-    <%= f.label :admin %>
-    <%= f.check_box :admin %>
-  </div>
-
-  <div class="field">
-    <%= f.label :phone %>
-    <%= f.text_field :phone %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+    <%= f.hidden_field :user_id, value: user.id %>
+    <%= f.hidden_field :position_id, value: schedule.position_id %>
+    <%= f.hidden_field :available, value: schedule.available %>
+    <%= f.hidden_field :date, value: schedule.date %>
+    <%= f.hidden_field :startTime, value: schedule.startTime %>
+    <%= f.hidden_field :endTime, value: schedule.endTime %>
+    <%= f.submit "Approve Request" %>
 <% end %>

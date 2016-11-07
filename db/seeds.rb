@@ -71,7 +71,11 @@ number_of_stores.times do |s|
     end
     
     number_of_requests.times do |n|
-        Request.create(user.take, user.schedule.take)
+        Request.create(n, 0)
+        Request.create(n, 1)
+        Request.create(n, 2)
+        Request.create(n, 3)
+        Request.create(n, 4)
     end
 end
 
