@@ -1,5 +1,5 @@
  <link rel="stylesheet" href="stylesheets/schStyles.css">
-
+<% userType = @currentUser.admin %>
 <p id="notice"><%= notice %></p>
 
 
@@ -50,34 +50,13 @@
         </div>
         <div class="modal-body">
 
-        <!--<form  >-->
-        <!--    <fieldset>-->
-        <!--         <div class="row">-->
-                     
-                         
-        <!--        <section class="col-sm-4 col-xs-12 "><label for="startT" class="fRight noPad">Start Time</label></section>-->
-        <!--        <section class="col-sm-8 col-xs-12 "><input type="time" name="startT" id="startT"  -->
-        <!--                                               class="time  "></section>-->
-                      
-        <!--        <section class="col-sm-4 col-xs-12"><label for="endT" class="fRight noPad">End Time</label></section>-->
-        <!--        <section class="col-sm-8 col-xs-12 "><input type="time" name="endT" id="endT"  -->
-        <!--                                               class="time  "></section>-->
 
-        <!--        <input type="hidden" id="date" >-->
-        <!--        <input type="hidden" id="userId" >-->
-                     
-        <!--      <input type="button" id="cancelBut"  data-dismiss="modal" value="Cancel">-->
-        <!--      <input type="submit" id="submitBut" onclick="return printShiftView();" data-dismiss="modal">-->
-              
-                   
-        <!--        </div>-->
-        <!--    </fieldset>-->
-        <!--</form>-->
             
- 
-        <%= render 'form', schedule: @schedule %>
-  
-            
+        <% if userType %>
+          <%= render 'form', schedule: @schedule %>
+        <% else %>
+          <%= render 'available', schedule: @schedule %>
+        <% end %> 
             
         </div>
         <div class="modal-footer">

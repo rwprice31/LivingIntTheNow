@@ -1,7 +1,6 @@
+<% userType = @currentUser.admin %>
 
-<% my_staff = {"Cooks"=>["Doncho Dontchev1", "Amy Clark2", "Jim Kemp3"], "Waiters"=>["Russ Dewitt4", "Antwane Duwane5"], "Busers"=>["James Kenyon6", "Hillary Overton7"], "Managers"=>["Benny Mitchell8", "Phil Hoddy9"]} %>
-
-<%= @positions.count %>
+<% if userType %>  <%# if user is admin %>
 
 <% @positions.each do |job| %>
     <th class="positionHead"> <%= job.name %> </th>
@@ -17,27 +16,38 @@
              <th class="myTh lg empColumn"> <%= emp.firstName %> <%= emp.lastName %></th>
              
              <!--builds each day for given employee -->
+             <% d = d.next_day(-1) %>
              <% (0..6).each do |i| %>
                  <% d = d.next_day(1) %>
                  <% dayShift = empShifts.where("date = ?", d) %>
+                 
                  <!--builds shift entry if it exists-->
-                 <% if dayShift.present? %>
+                 <% if dayShift.first.present? then %>
  
-                    <td class="myTd lg" id="tag<%= emp.id %>|<%= d %>">
-                    <span class="timeText mil_time"  ><%= dayShift.first.startTime.strftime("%I:%M%p") %></span>
-                     - <span class="timeText mil_time"><%= dayShift.first.endTime.strftime("%I:%M%p") %></span>
-                    <button type="button" class="editBut" data-toggle="modal" data-user="<%= emp.id %>"
-                    data-start="<%= dayShift.first.startTime.strftime("%I:%M%p") %>" 
-                    data-end="<%= dayShift.first.endTime.strftime("%I:%M%p") %>" data-date="<%= d %>"
-                    data-position="<%= job.id %>" 
-                    data-remote="<%= edit_schedule_path(dayShift.first.id) %>  #modal-edit-fields" href="#myModal" 
-                    id="<%= emp.id %>|<%= d %>">Edit Shift</button>
-                    </td>
+<td class="myTd lg" id="tag<%= emp.id %>|<%= d %>">
+<span class="timeText mil_time"  ><%= dayShift.first.startTime.strftime("%I:%M%p") %></span>
+ - <span class="timeText mil_time"><%= dayShift.first.endTime.strftime("%I:%M%p") %></span>
+<button type="button" class="editBut" data-toggle="modal" data-user="<%= emp.id %>"
+data-start="<%= dayShift.first.startTime.strftime("%I:%M%p") %>" 
+data-end="<%= dayShift.first.endTime.strftime("%I:%M%p") %>" data-date="<%= d %>"
+data-position="<%= job.id %>" data-id="<%= dayShift.first.id %>"
+data-remote=" <%= edit_schedule_path(dayShift.first.id) %>  #modal-edit-fields" href="#myModal" 
+id="<%= emp.id %>|<%= d %>">Edit</button><br>
+
+<!--<a data-confirm="Confirm Delete" class ="destroyBut" data-method="delete"-->
+<!--href="/schedules/show?<%# dayShift.first.id %>=id">Destroy</a>-->
+<%= link_to 'Destroy', schedule_path(:id => dayShift.first.id), class: "destroyBut", method: :delete, data: { confirm: 'Confirm Delete' } %>
+</td>
                 <!--builds shift create button if shift doesn't exist-->
                  <% else %>
-                      <td class="myTd lg" id="tag<%= emp.id %>|<%= d %>"><button 
-                      type="button" class="createBut" data-user="<%= emp.id %>" data-date="<%= d %>"
-                      data-toggle="modal" href="#myModal">Create Shift</button>
+                      <td class="myTd lg" id="tag<%= emp.id %>|<%= d %>">
+                    <button type="button" class="createBut" 
+                      data-user="<%= emp.id %>" 
+                      data-date="<%= d %>" 
+                      data-toggle="modal" 
+                      data-position="<%= job.id %>" 
+                      href="#myModal">Create Shift
+                    </button>
                       </td>
                  <% end %>
              <% end %>
@@ -47,30 +57,71 @@
 <% end %>
 
 
-<!--<% my_staff.each do |key, array| %>-->
 
 
-<!--     <tr><th class="positionHead"> <%= key %> </th></tr>-->
- 
-<!--         <% array.each do |x| %>-->
-<!--         <% d = Date.new(2016,5,29) %>-->
-<!--         <% userId = x.gsub(/[^0-9]/, "") %>-->
-<!--         <% name = x.gsub(/[^a-zA-Z ]/i, '') %>-->
-<!--         <tr>-->
-<!--         <th class="myTh lg empColumn"> <%= name %> </th>-->
-         
-<!--             <% (0..6).each do |i| %>-->
-<!--                 <% d = d.next_day(1) %>-->
+
+<% else %>  <%# if user is not admin %>
+
+<% @positions.each do |job| %>
+    <th class="positionHead"> <%= job.name %> </th>
+    <% @staff.each do |emp| %>
+
+        <% if emp.position.include?(job) then %> 
+
+             <% empShifts = @weekSchedule.where("user_id = ?", emp.id) %>
+            
+             <% d = @date %>
+             <tr>
+             <!--Row Header (emp name) -->
+             <th class="myTh lg empColumn"> <%= emp.firstName %> <%= emp.lastName %></th>
              
-<!--                <td class="myTd lg" id="tag<%= userId %>|<%= d %> ">-->
-<!--                <span class="timeText mil_time"  >11:00</span>-->
-<!--                 - <span class="timeText mil_time">15:00</span>-->
-<!--                <button type="button" class="editBut" data-toggle="modal" data-user="<%= userId %>"-->
-<!--                data-start="11:00" data-end="15:00" data-date="<%= d %>" href="#myModal" -->
-<!--                id="<%= userId %>|<%= d %>">Edit Shift</button>-->
-<!--                </td>-->
-             
-<!--             <% end %>-->
-<!--         </tr>-->
-<!--         <% end %>-->
-<!--<% end %>-->
+             <!--builds each day for given employee -->
+             <% d = d.next_day(-1) %>
+             <% (0..6).each do |i| %>
+                 <% d = d.next_day(1) %>
+                 <% dayShift = empShifts.where("date = ?", d) %>
+
+
+                 <!--builds shifts of Current User-->
+                 <% if (dayShift.first.present?) && (emp.id == @currentUser.id) then %>
+
+<td class="myTd lg" id="tag<%= emp.id %>|<%= d %>">
+<span class="timeText mil_time"  ><%= dayShift.first.startTime.strftime("%I:%M%p") %></span>
+ - <span class="timeText mil_time"><%= dayShift.first.endTime.strftime("%I:%M%p") %></span>
+<button type="button" class="dropBut" data-toggle="modal" data-user="<%= emp.id %>"
+data-start="<%= dayShift.first.startTime.strftime("%I:%M%p") %>" 
+data-end="<%= dayShift.first.endTime.strftime("%I:%M%p") %>" data-date="<%= d %>"
+data-position="<%= job.id %>" data-id="<%= dayShift.first.id %>"
+data-remote=" <%= edit_schedule_path(dayShift.first.id) %>  #modal-edit-fields" href="#myModal" 
+id="<%= emp.id %>|<%= d %>">Drop</button><br>
+</td>
+
+                <%# builds shifts that can be picked up %>
+                <% elsif (dayShift.first.present?) && (dayShift.first.position.id.in?(@currentUser.position.ids)) && (dayShift.first.available) then %>
+<td class="myTd lg" id="tag<%= emp.id %>|<%= d %>">
+<span class="timeText mil_time"  ><%= dayShift.first.startTime.strftime("%I:%M%p") %></span>
+ - <span class="timeText mil_time"><%= dayShift.first.endTime.strftime("%I:%M%p") %></span>
+<button type="button" class="dropBut" data-toggle="modal" data-user="<%= emp.id %>"
+data-start="<%= dayShift.first.startTime.strftime("%I:%M%p") %>" 
+data-end="<%= dayShift.first.endTime.strftime("%I:%M%p") %>" data-date="<%= d %>"
+data-position="<%= job.id %>" data-id="<%= dayShift.first.id %>"
+data-remote=" <%= edit_schedule_path(dayShift.first.id) %>  #modal-edit-fields" href="#myModal" 
+id="<%= emp.id %>|<%= d %>">Pick-Up</button><br> 
+                      </td>
+                      
+                <%# builds shifts that can't be picked up %>
+                <% elsif (dayShift.first.present?)  %>
+<td class="myTd lg" id="tag<%= emp.id %>|<%= d %>">
+<span class="timeText mil_time"  ><%= dayShift.first.startTime.strftime("%I:%M%p") %></span>
+ - <span class="timeText mil_time"><%= dayShift.first.endTime.strftime("%I:%M%p") %></span>
+<br> 
+                      </td>
+                 <% end %>
+             <% end %>
+             </tr>
+        <% end %>
+    <% end %>
+<% end %>
+
+
+<% end %>
