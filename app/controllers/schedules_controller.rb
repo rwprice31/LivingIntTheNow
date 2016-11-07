@@ -1,15 +1,22 @@
 class SchedulesController < ApplicationController
-  before_action :set_schedule, only: [:show, :edit, :update, :destroy]
+  before_action :set_schedule, only: [:show, :edit, :update]
 
   # GET /schedules
   # GET /schedules.json
   def index
     @schedules = Schedule.all
+    @date = "2016-10-24"
   end
 
   # GET /schedules/1
   # GET /schedules/1.json
   def show
+    @currentUser = currentUser.id #TODO: paramitize user for user-typing 1=admin other=non-admin
+    @date = Date.new(2016,10,24) #TODO: paramitize date
+    @staff = User.where("active = ? AND store_id = ?", true, Store.find(1))  #TODO: paramitize store
+    @weekSchedule = Schedule.where("date IN (?) AND user_id IN (?)", (Date.new(2016,10,24)..Date.new(2016,10,24).next_day(6)),  (User.where("active = ? AND store_id = ?", true, Store.find(1)).ids))
+    @positions = Position.where("scheduleable = ? AND store_id = ?", true, Store.find(1)) #TODO: paramitize store
+    @schedule = Schedule.new
   end
 
   # GET /schedules/new
@@ -19,21 +26,26 @@ class SchedulesController < ApplicationController
 
   # GET /schedules/1/edit
   def edit
+
   end
 
   # POST /schedules
   # POST /schedules.json
   def create
-    @schedule = Schedule.new(schedule_params)
-
+    if params[:schedule][:id].present?
+      @schedule = Schedule.find(params[:schedule][:id]).update(schedule_params)
+redirect_to :back
+    else
+      @schedule = Schedule.new(schedule_params)
     respond_to do |format|
       if @schedule.save
-        format.html { redirect_to @schedule, notice: 'Schedule was successfully created.' }
+        format.html { redirect_to :back, notice: 'Schedule was successfully created.' }
         format.json { render :show, status: :created, location: @schedule }
       else
         format.html { render :new }
         format.json { render json: @schedule.errors, status: :unprocessable_entity }
       end
+    end
     end
   end
 
@@ -41,6 +53,7 @@ class SchedulesController < ApplicationController
   # PATCH/PUT /schedules/1.json
   def update
     deny_request(@schedule)
+    @schedule = Schedule.find(params[:id]).update(schedule_params)
     respond_to do |format|
       if @schedule.update(schedule_params)
         format.html { redirect_to @schedule, notice: 'Schedule was successfully updated.' }
@@ -55,9 +68,9 @@ class SchedulesController < ApplicationController
   # DELETE /schedules/1
   # DELETE /schedules/1.json
   def destroy
-    @schedule.destroy
+    @schedule = Schedule.find(params[:id]).destroy
     respond_to do |format|
-      format.html { redirect_to schedules_url, notice: 'Schedule was successfully destroyed.' }
+      format.html { redirect_to :back, notice: 'Schedule was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -65,7 +78,16 @@ class SchedulesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_schedule
+<<<<<<< HEAD
       @schedule = Schedule.new
+=======
+      if (params[:id] != "show")
+        @schedule = Schedule.find(params[:id])
+      else
+        @schduele = Schedule.all
+      end
+
+>>>>>>> 16e176b6e1e014a2844270ec0fa217cd9bbbd365
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

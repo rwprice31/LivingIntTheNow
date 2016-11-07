@@ -3,8 +3,7 @@ class RequestsController < ApplicationController
   #before_filter :authenticate_user! ####################################### This is for Devise
 
   def availableShifts
-    current_user = User.find(2) ############### CHANGE ONCE DEVISE IS READY
-    @schedule = Schedule.where(available: true)
+    @schedule = Schedule.where(available: true, position: current_user.position).to_a
     shifts = current_user.schedule
     #Write something to filter out the conflicting shifts
     
@@ -18,23 +17,34 @@ class RequestsController < ApplicationController
           #Check the available shift's start and end time to see if they come before the user shift's start time
           if(available.startTime.utc.strftime('%H%M') < shift.startTime.utc.strftime('%H%M'))
             if(available.endTime.utc.strftime('%H%M') <= shift.startTime.utc.strftime('%H%M'))
-              puts available.startTime.utc.strftime('%H%M') + " - " + available.endTime.utc.strftime('%H%M')
-              puts shift.startTime.utc.strftime('%H%M') + " - " + shift.endTime.utc.strftime('%H%M')
-              puts "-Shift is available-"
+              puts "############ " + available.startTime.utc.strftime('%H%M') + " - " + available.endTime.utc.strftime('%H%M')
+              puts "############ " + shift.startTime.utc.strftime('%H%M') + " - " + shift.endTime.utc.strftime('%H%M')
+              puts "############ Shift is available"
             else
-              puts "-Shift is unavailable-"
+              @schedule.reject! {|a| a.id == available.id}
+              puts "############"
+              puts "############"
+              puts "############"
+              puts "############"
+              puts "############ GET DUNKED ON"
             end
             
           #Otherwise check that the available shift's start time comes after the user shift's end time
           elsif(available.startTime >= shift.endTime)
-            puts available.startTime.utc.strftime('%H%M') + " - " + available.endTime.utc.strftime('%H%M')
-            puts shift.startTime.utc.strftime('%H%M') + " - " + shift.endTime.utc.strftime('%H%M')
-            puts "-Shift is available-"
+            puts "############ " + available.startTime.utc.strftime('%H%M') + " - " + available.endTime.utc.strftime('%H%M')
+            puts "############ " + shift.startTime.utc.strftime('%H%M') + " - " + shift.endTime.utc.strftime('%H%M')
+            puts "############ Shift is available"
           else
-            puts "-Shift is unavailable-"
+            @schedule.reject! {|a| a.id == available.id}
+            puts "############"
+            puts "############"
+            puts "############"
+            puts "############"
+            puts "############ GET DUNKED ON"
           end
         end
       end
+      
     end
   end
 
