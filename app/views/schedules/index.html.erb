@@ -5,6 +5,7 @@
 <table>
   <thead>
     <tr>
+      <th>Schedule ID</th>
       <th>User</th>
       <th>Position</th>
       <th>Available</th>
@@ -18,6 +19,7 @@
   <tbody>
     <% @schedules.each do |schedule| %>
       <tr>
+        <td><%= schedule.id %></td>
         <td><%= schedule.user.firstName + " " + schedule.user.lastName %></td>
         <td><%= schedule.position.name %></td>
         <td><%= schedule.available %></td>
