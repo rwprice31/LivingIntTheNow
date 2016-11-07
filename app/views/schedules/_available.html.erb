@@ -27,8 +27,8 @@
   </div>
 
   <div class="field">
-    <%# f.label :available %>
-    <%= f.hidden_field :available %>
+    <%= f.label :Release %>
+    <%= f.check_box:available %>
   </div>
 
   <div class="field">
@@ -38,19 +38,18 @@
 
   <div class="field">
     <%= f.label :startTime %>
-    <%= f.time_select :startTime %>
+    <%= f.time_select :startTime, {disabled: 'restricted'} %>
   </div>
 
   <div class="field">
     <%= f.label :endTime %>
-    <%= f.time_select :endTime %>
+    <%= f.time_select :endTime, {disabled: 'restricted'} %>
   </div>
-  
-  <br>
+
   
   
 
   <div class="actions">
-    <%= f.submit("Update")  %>
+    <%= f.submit %>
   </div>
 <% end %>

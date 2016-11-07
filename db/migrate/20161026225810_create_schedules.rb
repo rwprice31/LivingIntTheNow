@@ -12,3 +12,6 @@ class CreateSchedules < ActiveRecord::Migration[5.0]
     end
   end
 end
+
+
+(dayShift.first.available)
