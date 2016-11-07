@@ -92,8 +92,4 @@ end
 
 
 
-<<<<<<< HEAD
 #Request.create(schedule_id: nil, user_id: nil) **In this case the user_id is who is doing the requesting**
-=======
-#Request.create(schedule_id: nil, user_id: nil) **In this case the user_id is who is doing the requesting**
->>>>>>> origin/jpAdoptModels
