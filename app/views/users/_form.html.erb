@@ -35,10 +35,16 @@
     <%= f.label :active %>
     <%= f.check_box :active %>
   </div>
-
-  <div class="field">
+  
+  <div>
     <%= f.label :admin %>
     <%= f.check_box :admin %>
+  </div>
+
+  <div>
+    <%= f.label :position %>
+    <!--collection_select(:post, :author_id, Author.find(:all), :id, :name)-->
+    <%= f.collection_select(:position, Position.where(store_id: current_user.store_id), :id, :name ) %>
   </div>
 
   <div class="field">
