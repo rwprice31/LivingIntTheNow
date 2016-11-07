@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Schedules</h1>
+<h1>Available Shifts</h1>
 
 <table>
   <thead>
@@ -9,22 +9,23 @@
       <th>Position</th>
       <th>Available</th>
       <th>Date</th>
-      <th>Starttime</th>
-      <th>Endtime</th>
+      <th>Start</th>
+      <th>End</th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
+    <tr>
+      
     <% @schedule.each do |schedule| %>
-      <tr>
         <td><%= schedule.user.firstName + " " + schedule.user.lastName %></td>
         <td><%= schedule.position.name %></td>
         <td><%= schedule.available %></td>
         <td><%= schedule.date %></td>
-        <td><%= schedule.startTime %></td>
-        <td><%= schedule.endTime %></td>
-        <td><%= button_to 'Request', '#' %></td>
+        <td><%= schedule.startTime.strftime("%l:%M%p") %></td>
+        <td><%= schedule.endTime.strftime("%l:%M%p") %></td>
+        <td><%= render 'requestForm', request: Request.new, schedule: schedule %></td>
       </tr>
     <% end %>
   </tbody>
