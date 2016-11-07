@@ -26,27 +26,33 @@ class SchedulesController < ApplicationController
 
   # GET /schedules/1/edit
   def edit
+
   end
 
   # POST /schedules
   # POST /schedules.json
   def create
-    @schedule = Schedule.new(schedule_params)
-
+    if params[:schedule][:id].present?
+      @schedule = Schedule.find(params[:schedule][:id]).update(schedule_params)
+redirect_to :back
+    else
+      @schedule = Schedule.new(schedule_params)
     respond_to do |format|
       if @schedule.save
-        format.html { redirect_to @schedule, notice: 'Schedule was successfully created.' }
+        format.html { redirect_to :back, notice: 'Schedule was successfully created.' }
         format.json { render :show, status: :created, location: @schedule }
       else
         format.html { render :new }
         format.json { render json: @schedule.errors, status: :unprocessable_entity }
       end
     end
+    end
   end
 
   # PATCH/PUT /schedules/1
   # PATCH/PUT /schedules/1.json
   def update
+    @schedule = Schedule.find(params[:id]).update(schedule_params)
     respond_to do |format|
       if @schedule.update(schedule_params)
         format.html { redirect_to @schedule, notice: 'Schedule was successfully updated.' }
@@ -74,7 +80,7 @@ class SchedulesController < ApplicationController
       if (params[:id] != "show")
         @schedule = Schedule.find(params[:id])
       else
-        @schduele = Schedule.new
+        @schduele = Schedule.all
       end
 
     end
