@@ -74,6 +74,10 @@ class RequestsController < ApplicationController
     end
   end
 
+  def approve
+    
+  end
+
   # PATCH/PUT /requests/1
   # PATCH/PUT /requests/1.json
   def update

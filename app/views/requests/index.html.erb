@@ -23,7 +23,7 @@
         <td><%= schedule.startTime.strftime("%l:%M%p") %></td>
         <td><%= schedule.endTime.strftime("%l:%M%p") %></td>
         <td><%= link_to 'Show', request %></td>
-        <td><%= link_to 'Approve Request', edit_request_path(request) %></td>
+        <td><%= render 'approvalForm' %></td>
         <td><%= link_to 'Deny Request', request, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
