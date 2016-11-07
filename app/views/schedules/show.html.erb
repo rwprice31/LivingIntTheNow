@@ -1,15 +1,10 @@
  <link rel="stylesheet" href="stylesheets/schStyles.css">
 <% userType = @currentUser.admin %>
+
 <p id="notice"><%= notice %></p>
 
-
-
-
     <div class="screenContainer">
-      This is the outer div
       <div class="tableContainer">
-        This is the inner div
-          
 
         <table class="myTable">
           <tr>
@@ -50,7 +45,6 @@
         </div>
         <div class="modal-body">
 
-
             
         <% if userType %>
           <%= render 'form', schedule: @schedule %>
@@ -60,8 +54,6 @@
             
         </div>
         <div class="modal-footer">
-          
-              
         </div>
       </div>      
     </div>

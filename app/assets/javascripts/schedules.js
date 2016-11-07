@@ -1,7 +1,7 @@
 
 //Build & Launch input Modal
 $(function() {
-$('#myModal').on('shown.bs.modal', function(e) {
+$('#myModal').on('show.bs.modal', function(e) {
 
     var date = e.relatedTarget.dataset.date; 
     var userId = e.relatedTarget.dataset.user;

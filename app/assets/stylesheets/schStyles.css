@@ -32,8 +32,6 @@
     
 }
 
-
-
 .myTh{
     border: 1px solid blue;
     background-color:#dee1e5;
@@ -50,11 +48,6 @@ bottom: -4px;
 
 .empColumn{
     width: 16%;
-}
-
-.time{
-
-
 }
 
 .positionHead{
@@ -124,7 +117,7 @@ bottom: -4px;
 
 .modal-content{
     height: 175px;
-    width: 300px;
+    width: 220px;
     padding: 0px;
 }
 #submitBut{
@@ -179,19 +172,14 @@ bottom: -4px;
         display: inline-block; 
         width: 14.28%;
     }
-    .editBut{
-        font-size: .8em;
-    }
-    .createBut{
-        font-size: .75em;
-        padding-left: 2px;
-    }
     .empHead.sm{
         width: 100%;  
     }
     .myTd{
-        border: 0px; 
-        height: 20px;
+        border: 1px solid #888888;
+        height: 35px;
+        padding: 0px;
+        margin: 0px;
     }
     .fRight{
         float: left;
@@ -203,12 +191,12 @@ bottom: -4px;
         margin: 0px;
     }
     .modal-content{
-        height: 215px;
-        width: 225px;
+        height: 175px;
+        width: 200px;
         padding: 0px;
     }
     .modal-body{
-        height: 112px;
+        height: 75px;
 
     }
     .modal-footer{
@@ -224,6 +212,18 @@ bottom: -4px;
         background-color:#9aa6ba;
         color: white;
         font-size: .9em;
-        
+        padding: 0px;
+        margin: 0px;
+    }
+        .createBut{
+        width: 100%;
+        height: 100%;
+        font-size: .85em;
+        padding-left: 0px;
+    }
+    .dropBut{
+        height: 100%;
+        font-size: .9em;
+        padding-left: 0px;
     }
 }
