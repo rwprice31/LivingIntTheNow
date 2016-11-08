@@ -34,7 +34,7 @@ class SchedulesController < ApplicationController
   def create
     if params[:schedule][:id].present?
       @schedule = Schedule.find(params[:schedule][:id]).update(schedule_params)
-redirect_to :back
+    redirect_to :back
     else
       @schedule = Schedule.new(schedule_params)
     respond_to do |format|
@@ -83,7 +83,6 @@ redirect_to :back
       else
         @schduele = Schedule.all
       end
-
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
