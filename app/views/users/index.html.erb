@@ -2,11 +2,10 @@
 
 <h1>Users</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Email</th>
-      <th>Password</th>
       <th>Firstname</th>
       <th>Lastname</th>
       <th>Active</th>
@@ -21,15 +20,23 @@
     <% @users.each do |user| %>
       <tr>
         <td><%= user.email %></td>
-        <td><%= user.password %></td>
         <td><%= user.firstName %></td>
         <td><%= user.lastName %></td>
-        <td><%= user.active %></td>
-        <td><%= user.admin %></td>
+        <td>
+          <% if(user.active) then %>
+            <span class="glyphicon glyphicon-ok"></span>
+          <% else %>
+            <span class="glyphicon glyphicon-remove"></span>
+          <% end %>
+        </td>
+        <td>
+          <% if(user.admin) then%>
+            <span class="glyphicon glyphicon-ok"></span>
+          <% else %>
+            <span class="glyphicon glyphicon-remove"></span>
+          <% end %>
+        </td>
         <td><%= user.phone %></td>
-        <%# @stores.where(id: user.store_id).find_each do |store| %>
-        <!--td><%#= store.companyName %></td-->
-        <%# end %>
         <td><%= user.store.companyName %></td>
         <td><%= link_to 'Show', user %></td>
         <td><%= link_to 'Edit', edit_user_path(user) %></td>
