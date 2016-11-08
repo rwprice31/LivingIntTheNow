@@ -1,4 +1,4 @@
-<% userType = @currentUser.admin %>
+<% userType = current_user.admin %>
 
 <% if userType %>  <%# if user is admin %>
 
@@ -39,7 +39,7 @@ data-position="<%= job.id %>" data-id="<%= dayShift.first.id %>"
 data-remote=" <%= edit_schedule_path(:id => dayShift.first.id) %>  #modal-edit-fields" href="#myModal" 
 id="<%= emp.id %>|<%= d %>">Edit</button><br>
 
-<%= link_to 'Destroy', schedule_path(:id => dayShift.first.id), class: "destroyBut", method: :delete, data: { confirm: 'Confirm Delete' } %>
+<%= link_to 'Destroy', schedule_path(dayShift.first), class: "destroyBut", method: :delete, data: { confirm: 'Confirm Delete' } %>
 </td>
 
 <%# Small Format shift field %>
