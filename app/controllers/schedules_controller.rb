@@ -11,7 +11,7 @@ class SchedulesController < ApplicationController
   # GET /schedules/1
   # GET /schedules/1.json
   def show
-    @currentUser = current_user.id #TODO: paramitize user for user-typing 1=admin other=non-admin
+    @currentUser = current_user #TODO: paramitize user for user-typing 1=admin other=non-admin
     @date = Date.today.beginning_of_week
     @staff = User.where("active = ? AND store_id = ?", true, Store.find(1))  #TODO: paramitize store
     @weekSchedule = Schedule.where("date IN (?) AND user_id IN (?)", (@date..@date.next_day(6)),  (User.where("active = ? AND store_id = ?", true, current_user.store_id).ids))
@@ -53,7 +53,7 @@ class SchedulesController < ApplicationController
   # PATCH/PUT /schedules/1.json
   def update
     deny_request(@schedule)
-    @schedule = Schedule.find(params[:id]).update(schedule_params)
+    @schedule = Schedule.find(params[:id])
     respond_to do |format|
       if @schedule.update(schedule_params)
         format.html { redirect_to @schedule, notice: 'Schedule was successfully updated.' }
