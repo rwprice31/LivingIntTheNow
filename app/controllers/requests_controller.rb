@@ -3,7 +3,8 @@ class RequestsController < ApplicationController
   #before_filter :authenticate_user! ####################################### This is for Devise
 
   def availableShifts
-    @schedule = Schedule.where(available: true, position: current_user.position).to_a
+    @schedule = Schedule.where(available: true).to_a
+    # @schedule = Schedule.where(available: true, position: current_user.position).to_a #Change back once we can assign positions
     shifts = current_user.schedule
     #Write something to filter out the conflicting shifts
     
