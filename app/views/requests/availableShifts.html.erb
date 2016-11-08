@@ -2,7 +2,7 @@
 
 <h1>Available Shifts</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>User</th>
@@ -21,7 +21,6 @@
     <% @schedule.each do |schedule| %>
         <td><%= schedule.user.firstName + " " + schedule.user.lastName %></td>
         <td><%= schedule.position.name %></td>
-        <td><%= schedule.available %></td>
         <td><%= schedule.date %></td>
         <td><%= schedule.startTime.strftime("%l:%M%p") %></td>
         <td><%= schedule.endTime.strftime("%l:%M%p") %></td>
