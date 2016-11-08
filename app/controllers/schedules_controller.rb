@@ -5,17 +5,17 @@ class SchedulesController < ApplicationController
   # GET /schedules.json
   def index
     @schedules = Schedule.all
-    @date = "2016-10-24"
+    @date = Date.today.beginning_of_week
   end
 
   # GET /schedules/1
   # GET /schedules/1.json
   def show
-    @currentUser = currentUser.id #TODO: paramitize user for user-typing 1=admin other=non-admin
-    @date = Date.new(2016,10,24) #TODO: paramitize date
+    @currentUser = current_user.id #TODO: paramitize user for user-typing 1=admin other=non-admin
+    @date = Date.today.beginning_of_week
     @staff = User.where("active = ? AND store_id = ?", true, Store.find(1))  #TODO: paramitize store
-    @weekSchedule = Schedule.where("date IN (?) AND user_id IN (?)", (Date.new(2016,10,24)..Date.new(2016,10,24).next_day(6)),  (User.where("active = ? AND store_id = ?", true, Store.find(1)).ids))
-    @positions = Position.where("scheduleable = ? AND store_id = ?", true, Store.find(1)) #TODO: paramitize store
+    @weekSchedule = Schedule.where("date IN (?) AND user_id IN (?)", (@date..@date.next_day(6)),  (User.where("active = ? AND store_id = ?", true, current_user.store_id).ids))
+    @positions = Position.where("scheduleable = ? AND store_id = ?", true, current_user.store_id) #TODO: paramitize store
     @schedule = Schedule.new
   end
 
@@ -78,16 +78,12 @@ redirect_to :back
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_schedule
-<<<<<<< HEAD
-      @schedule = Schedule.new
-=======
       if (params[:id] != "show")
         @schedule = Schedule.find(params[:id])
       else
         @schduele = Schedule.all
       end
 
->>>>>>> 16e176b6e1e014a2844270ec0fa217cd9bbbd365
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
