@@ -113,7 +113,7 @@ id="<%= emp.id %>|<%= d %>"><%= dayShift.first.startTime.strftime("%I:%M%p")[0..
 
 
             <%# builds shifts of Current User %>
-                 <% if (dayShift.first.present?) && (emp.id == @currentUser.id) then %>
+                 <% if (dayShift.first.present?) && (emp.id == current_user.id) then %>
 <%# Large Format shift field %>
 <td class="myTd lg" id="tag<%= emp.id %>|<%= d %>">
 <span class="timeText mil_time"  ><%= dayShift.first.startTime.strftime("%I:%M%p") %></span>
@@ -139,7 +139,7 @@ id="<%= emp.id %>|<%= d %>"><%= dayShift.first.startTime.strftime("%I:%M%p")[0..
 
 
                 <%# Large Format builds shifts that can be picked up %>
-                <% elsif (dayShift.first.present?) && (dayShift.first.position.id.in?(@currentUser.position.ids)) && (dayShift.first.available) then %>
+                <% elsif (dayShift.first.present?) && (dayShift.first.position.id.in?(current_user.position.ids)) && (dayShift.first.available) then %>
 <td class="myTd lg" id="tag<%= emp.id %>|<%= d %>">
 <span class="timeText mil_time"  ><%= dayShift.first.startTime.strftime("%I:%M%p") %></span>
  - <span class="timeText mil_time"><%= dayShift.first.endTime.strftime("%I:%M%p") %></span>
