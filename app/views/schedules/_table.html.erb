@@ -139,29 +139,21 @@ id="<%= emp.id %>|<%= d %>"><%= dayShift.first.startTime.strftime("%I:%M%p")[0..
 
 
                 <%# Large Format builds shifts that can be picked up %>
-                <% elsif (dayShift.first.present?) && (dayShift.first.position.id.in?(current_user.position.ids)) && (dayShift.first.available) then %>
+                <% elsif (dayShift.first.present?) && (dayShift.first.position_id.in?(current_user.position.ids)) && (dayShift.first.available) then %>
 <td class="myTd lg" id="tag<%= emp.id %>|<%= d %>">
 <span class="timeText mil_time"  ><%= dayShift.first.startTime.strftime("%I:%M%p") %></span>
  - <span class="timeText mil_time"><%= dayShift.first.endTime.strftime("%I:%M%p") %></span>
-<button type="button" class="dropBut" data-toggle="modal" data-user="<%= emp.id %>"
-data-start="<%= dayShift.first.startTime.strftime("%I:%M%p") %>" 
-data-end="<%= dayShift.first.endTime.strftime("%I:%M%p") %>" data-date="<%= d %>"
-data-position="<%= job.id %>" data-id="<%= dayShift.first.id %>"
-data-remote=" <%= edit_schedule_path(dayShift.first.id) %>  #modal-edit-fields" href="#myModal" 
-id="<%= emp.id %>|<%= d %>">Pick-Up</button><br> 
+ 
+ <%= link_to "Pick Up", new_request_path(:request_schedule_id => dayShift.first.id, :request_user_id => emp.id), :class => "dropBut" %>
+ 
+<br> 
                       </td>
                       
                 <%# Small Format builds shifts that can be picked up %>
 <td class="myTd sm" id="tag<%= emp.id %>|<%= d %>">
 
-<button type="button" class="dropBut" data-toggle="modal" data-user="<%= emp.id %>"
-data-start="<%= dayShift.first.startTime.strftime("%I:%M%p") %>" 
-data-end="<%= dayShift.first.endTime.strftime("%I:%M%p") %>" data-date="<%= d %>"
-data-position="<%= job.id %>" data-id="<%= dayShift.first.id %>"
-data-remote=" <%= edit_schedule_path(dayShift.first.id) %>  #modal-edit-fields" href="#myModal" 
-id="<%= emp.id %>|<%= d %>">Pick-Up</button><br> 
+<%= link_to "Pick Up", new_request_path(:request_schedule_id => dayShift.first.id, :request_user_id => emp.id), :class => "dropBut" %><br> 
                       </td>          
-            
                       
                 <%# builds shifts that can't be picked up %>
                 <% elsif (dayShift.first.present?)  %>

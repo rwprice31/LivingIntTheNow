@@ -72,12 +72,13 @@ class RequestsController < ApplicationController
   # POST /requests
   # POST /requests.json
   def create
-    @request = Request.create(request_params)
+    @request = Request.create(:schedule_id => params[:request][:schedule_id], :user_id => params[:request][:user_id] )
     
     respond_to do |format|
       if @request.save
-        format.html { redirect_to @request, notice: 'Request was successfully created.' }
-        format.json { render :show, status: :created, location: @request }
+        format.html { redirect_to schedule_url(current_user.id) , notice: 'Request was successfully created.' }
+        format.json { render :show, status: :created, location: @schedule }
+        
       else
         format.html { render :new }
         format.json { render json: @request.errors, status: :unprocessable_entity }
@@ -122,7 +123,7 @@ class RequestsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def request_params
-      params.require(:request).permit(:schedule_id, :user_id)
+      params.permit(:request, :schedule_id, :user_id)
     end
     
     def approve_request
