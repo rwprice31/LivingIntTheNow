@@ -1,10 +1,12 @@
  <link rel="stylesheet" href="stylesheets/schStyles.css">
-<% userType = @currentUser.admin %>
+<% userType = current_user.admin %>
 
 <p id="notice"><%= notice %></p>
 
     <div class="screenContainer">
       <div class="tableContainer">
+
+<%# link_to "Next Week", next_schedules_path(:date => @date.next_day(7)), :method => :get %>
 
         <table class="myTable">
           <tr>
