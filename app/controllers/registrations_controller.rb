@@ -8,11 +8,14 @@ class RegistrationsController < Devise::RegistrationsController
       render "new"
    end
  end
+
+
  def sign_up_params
-   params.require(:user).permit(:firstName, :lastName, :phone, :active, :admin, :email, :store_id, :password, :password_confirmation)
+   params.require(:user).permit(:firstName, :lastName, :phone, :active, :store, :admin, :email, :password, :password_confirmation)
  end
 
  def account_update_params
-   params.require(:user).permit(:firstName, :lastName, :phone, :active, :admin, :email, :store_id, :password, :password_confirmation, :current_password)
+   params.require(:user).permit(:firstName, :lastName, :phone, :active, :store, :admin, :email, :password, :password_confirmation, :current_password)
  end
+
 end
