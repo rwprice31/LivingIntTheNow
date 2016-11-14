@@ -10,10 +10,10 @@ Rails.application.routes.draw do
 
 
   devise_for :users, :controllers => {registrations: 'registrations'}
-  
+
   get '/available_shifts', to: 'requests#availableShifts'
   post '/available_shifts', to: 'requests#create'
-  
+
   resources :requests
   resources :schedules
   resources :positions
