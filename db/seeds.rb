@@ -34,7 +34,7 @@ number_of_stores.times do |s|
     ## Naming convention: E = editSchedule A = acceptDenyShift S = scheduleable
     
     fNameArray = Array.[]("Jp", "Kenny", "Conner", "Mike", "Karl", "Val", "Colin", "Patrick", "Haseeb", "Rodny", "Richard", "Poukey", "Rufus")
-    lNameArray = Array.[]("Potter", "Weasley", "Granger", "Voldemort", "Dumbledore", "Snape", "Hagrid", "Malfoy", "Gaunt", "Pease", "Savile", "Percy", "Egerton")
+    lNameArray = Array.[]("Wentsworth", "Wyndham", "Walpole", "Townshend", "Tennyson", "Phipps", "Bathurst", "Gladstone", "Granville", "Pease", "Savile", "Percy", "Egerton")
     positionArray = Array.[](
 
     p0 = Position.create(name: "EAS Manager", editSchedule: true, acceptDenyShift: true, scheduleable: false, store_id: store.id),
