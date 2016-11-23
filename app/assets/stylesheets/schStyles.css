@@ -1,9 +1,8 @@
 
-
 .screenContainer{
     margin-left: 2%;
     margin-right: 2%;
-    background-color:#b5c0d1;
+    background-color: black;
 }
 
 .tableContainer{
@@ -29,7 +28,7 @@
     font-size: .8em;
     height: 41px;
     position: relative;
-    
+    font-weight: bold;
 }
 
 .myTh{
@@ -39,11 +38,29 @@
     text-align: center;
 }
 
+.available{
+    width: 100%;
+    height: 50%;
+    background-color:#485263;
+    color: white;
+    font-size: .95em;
+    padding-left: 0px;
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    text-align: center;
+}
+
+
+
+.available:hover{
+    background-color:#11223d;
+}
 .timeText{
     margin-top: 10px;
     font-size: 1em;
-        position: relative;
-bottom: -4px;
+    position: relative;
+    bottom: -4px;
 }
 
 .empColumn{
@@ -106,6 +123,9 @@ bottom: -4px;
 .editBut:hover{
     background: #5a769a;
 }
+.dropBut:hover{
+     background: #5a769a;
+}
 .truncateWarning{
     float:right;
     font-size: .75em;
@@ -159,6 +179,14 @@ bottom: -4px;
     padding-right: 10px;
     padding-top: 0px;
     background-color: darkgray;
+}
+
+
+
+@media (max-width: 855px) { 
+    .available{
+        font-size: .7em;
+    }
 }
 
 .lg, .lg { display: inline-block; }
@@ -215,7 +243,7 @@ bottom: -4px;
         padding: 0px;
         margin: 0px;
     }
-        .createBut{
+    .createBut{
         width: 100%;
         height: 100%;
         font-size: .85em;
@@ -226,4 +254,34 @@ bottom: -4px;
         font-size: .9em;
         padding-left: 0px;
     }
+    .available{
+        width: 100%;
+        height: 100%;
+        background-color:#485263;
+        color: white;
+        font-size: .8em;
+
+    
+}
+
+}
+
+.blue{
+    background-color:#485263;
+    width: 100%;
+    height: 100%;
+    padding: 0px;
+    margin: 0px;
+}
+
+.no-js #loader { display: none;  }
+.js #loader { display: block; position: absolute; left: 100px; top: 0; }
+.se-pre-con {
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	z-index: 9999;
+	
 }
