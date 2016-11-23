@@ -11,11 +11,12 @@ class SchedulesController < ApplicationController
   # GET /schedules/1
   # GET /schedules/1.json
   def show
-    @currentUser = current_user #TODO: paramitize user for user-typing 1=admin other=non-admin
+    @currentUser = current_user 
     @date = Date.today.beginning_of_week
-    @staff = User.where("active = ? AND store_id = ?", true, Store.find(1))  #TODO: paramitize store
-    @weekSchedule = Schedule.where("date IN (?) AND user_id IN (?)", (@date..@date.next_day(6)),  (User.where("active = ? AND store_id = ?", true, current_user.store_id).ids))
-    @positions = Position.where("scheduleable = ? AND store_id = ?", true, current_user.store_id) #TODO: paramitize store
+    @staff = User.where("active = ? AND store_id = ?", true, current_user.store_id)  
+    @weekSchedule = Schedule.where("date IN (?) AND user_id IN (?)", (@date..@date.next_day(6)), (User.where("active = ? AND store_id = ?", true, current_user.store_id).ids))
+    @positions = Position.where("scheduleable = ? AND store_id = ?", true, current_user.store_id) 
+    @requests = Request.where("user_id = ?", current_user.id)
     @schedule = Schedule.new
   end
 
@@ -39,7 +40,7 @@ class SchedulesController < ApplicationController
       @schedule = Schedule.new(schedule_params)
     respond_to do |format|
       if @schedule.save
-        format.html { redirect_to :back, notice: 'Schedule was successfully created.' }
+        format.html { redirect_to :back, notice: 'Shift was successfully created.' }
         format.json { render :show, status: :created, location: @schedule }
       else
         format.html { render :new }
@@ -56,7 +57,7 @@ class SchedulesController < ApplicationController
     @schedule = Schedule.find(params[:id])
     respond_to do |format|
       if @schedule.update(schedule_params)
-        format.html { redirect_to @schedule, notice: 'Schedule was successfully updated.' }
+        format.html { redirect_to @schedule, notice: 'Shift was successfully updated.' }
         format.json { render :show, status: :ok, location: @schedule }
       else
         format.html { render :edit }

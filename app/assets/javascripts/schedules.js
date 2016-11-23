@@ -1,3 +1,7 @@
+$(window).load(function() {
+		// Animate loader off screen
+		$(".se-pre-con").fadeOut("50000");;
+	});
 
 //Build & Launch input Modal
 $(function() {
