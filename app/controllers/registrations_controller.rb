@@ -1,4 +1,14 @@
 class RegistrationsController < Devise::RegistrationsController
+
+  def create
+   super do |resource|
+
+   store = Store.first
+   resource.store << store
+   resource.save
+ end
+  end
+
   private
  def find_store_id(store_input)
    if Store.where(store_id: store_input).exists?
@@ -10,7 +20,9 @@ class RegistrationsController < Devise::RegistrationsController
  end
 
 
+
  def sign_up_params
+<<<<<<< HEAD
 <<<<<<< HEAD
    params.require(:user).permit(:firstName, :lastName, :phone, :position, :active, :admin, :email, :store_id, :password, :password_confirmation)
  end
@@ -24,6 +36,13 @@ class RegistrationsController < Devise::RegistrationsController
  def account_update_params
    params.require(:user).permit(:firstName, :lastName, :phone, :active, :store, :admin, :email, :password, :password_confirmation, :current_password)
 >>>>>>> signup fix start
+=======
+   params.require(:user).permit(:firstName, :lastName, :phone, :active, :store_id, :admin, :email, :password, :password_confirmation)
+ end
+
+ def account_update_params
+   params.require(:user).permit(:firstName, :lastName, :phone, :active, :store_id, :admin, :email, :password, :password_confirmation, :current_password)
+>>>>>>> progres 2
  end
 
 end
