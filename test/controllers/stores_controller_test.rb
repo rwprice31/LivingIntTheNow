@@ -3,6 +3,7 @@ require 'test_helper'
 class StoresControllerTest < ActionDispatch::IntegrationTest
   setup do
     @store = stores(:one)
+    @user = users(:user_one)
   end
 
   test "should get index" do
@@ -29,6 +30,7 @@ class StoresControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get edit" do
+    sign_in @user
     get edit_store_url(@store)
     assert_response :success
   end
