@@ -2,7 +2,7 @@
 
 <h1>Positions</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Name</th>
@@ -18,9 +18,24 @@
     <% @positions.each do |position| %>
       <tr>
         <td><%= position.name %></td>
-        <td><%= position.editSchedule %></td>
-        <td><%= position.acceptDenyShift %></td>
-        <td><%= position.scheduleable %></td>
+        <td><% if(position.editSchedule) then%>
+            <span class="glyphicon glyphicon-ok"></span>
+          <% else %>
+            <span class="glyphicon glyphicon-remove"></span>
+          <% end %>
+        </td>
+        <td><% if(position.acceptDenyShift) then%>
+            <span class="glyphicon glyphicon-ok"></span>
+          <% else %>
+            <span class="glyphicon glyphicon-remove"></span>
+          <% end %>
+        </td>
+        <td><% if(position.scheduleable) then%>
+            <span class="glyphicon glyphicon-ok"></span>
+          <% else %>
+            <span class="glyphicon glyphicon-remove"></span>
+          <% end %>
+        </td>
         <td><%= position.store.companyName %></td>
         <td><%= link_to 'Show', position %></td>
         <td><%= link_to 'Edit', edit_position_path(position) %></td>

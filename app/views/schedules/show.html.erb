@@ -1,34 +1,67 @@
+ <link rel="stylesheet" href="stylesheets/schStyles.css">
+<% userType = current_user.admin %>
+
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>User:</strong>
-  <%= @schedule.user %>
-</p>
+    <div class="screenContainer">
+      <div class="tableContainer">
 
-<p>
-  <strong>Position:</strong>
-  <%= @schedule.position %>
-</p>
+<%# link_to "Next Week", next_schedules_path(:date => @date.next_day(7)), :method => :get %>
 
-<p>
-  <strong>Available:</strong>
-  <%= @schedule.available %>
-</p>
+        <table class="myTable">
+          <tr>
+            <th class="myTh lg empColumn">Employee</th>
+            <th class="myTh lg">Monday</th>
+            <th class="myTh lg">Tuesday</th>
+            <th class="myTh lg">Wednesday</th>
+            <th class="myTh lg">Thursday</th>
+            <th class="myTh lg">Friday</th>
+            <th class="myTh lg">Saturday</th>
+            <th class="myTh lg">Sunday</th>
+              
+            <th class="myTh sm">Mon</th>
+            <th class="myTh sm">Tue</th>
+            <th class="myTh sm">Wed</th>
+            <th class="myTh sm">Thu</th>
+            <th class="myTh sm">Fri</th>
+            <th class="myTh sm">Sat</th>
+            <th class="myTh sm">Sun</th>
+          </tr>
 
-<p>
-  <strong>Date:</strong>
-  <%= @schedule.date %>
-</p>
+<%= render "table"  %>
+       
+        </table>
 
-<p>
-  <strong>Starttime:</strong>
-  <%= @schedule.startTime %>
-</p>
+      </div>
+    </div>
+      
+      
+      <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog ">    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Edit Shift</h4>
+        </div>
+        <div class="modal-body">
 
-<p>
-  <strong>Endtime:</strong>
-  <%= @schedule.endTime %>
-</p>
+            
+        <% if userType %>
+          <%= render 'form', schedule: @schedule %>
+        <% else %>
+          <%= render 'available', schedule: @schedule %>
+        <% end %> 
+            
+        </div>
+        <div class="modal-footer">
+        </div>
+      </div>      
+    </div>
+  </div>  
+      
+      
 
-<%= link_to 'Edit', edit_schedule_path(@schedule) %> |
-<%= link_to 'Back', schedules_path %>
+
+      

@@ -64,7 +64,7 @@ class PositionsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_position
-      @position = Position.find(params[:id])
+      @position = Position.all
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

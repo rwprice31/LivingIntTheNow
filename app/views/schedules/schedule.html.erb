@@ -1,0 +1,92 @@
+
+   <link rel="stylesheet" href="stylesheets/schStyles.css">
+   <script src="javascripts/schedule.js"></script>
+    <div class="screenContainer">
+      This is the outer div
+      <div class="tableContainer">
+        This is the inner div
+          
+
+        <table class="myTable">
+          <tr>
+            <th class="myTh lg empColumn">Employee</th>
+            <th class="myTh lg">Monday</th>
+            <th class="myTh lg">Tuesday</th>
+            <th class="myTh lg">Wednesday</th>
+            <th class="myTh lg">Thursday</th>
+            <th class="myTh lg">Friday</th>
+            <th class="myTh lg">Saturday</th>
+            <th class="myTh lg">Sunday</th>
+              
+            <th class="myTh sm">Mon</th>
+            <th class="myTh sm">Tue</th>
+            <th class="myTh sm">Wed</th>
+            <th class="myTh sm">Thu</th>
+            <th class="myTh sm">Fri</th>
+            <th class="myTh sm">Sat</th>
+            <th class="myTh sm">Sun</th>
+          </tr>
+
+<%= render "table"  %>
+       
+        </table>
+
+      </div>
+    </div>
+      
+      
+      <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog ">    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Create Shift</h4>
+        </div>
+        <div class="modal-body">
+
+        <form  >
+            <fieldset>
+                 <div class="row">
+                     
+                         
+                <section class="col-sm-4 col-xs-12 "><label for="startT" class="fRight noPad">Start Time</label></section>
+                <section class="col-sm-8 col-xs-12 "><input type="time" name="startT" id="startT"  
+                                                       class="time  "></section>
+                      
+                <section class="col-sm-4 col-xs-12"><label for="endT" class="fRight noPad">End Time</label></section>
+                <section class="col-sm-8 col-xs-12 "><input type="time" name="endT" id="endT"  
+                                                       class="time  "></section>
+                
+                     
+                <!-- Development Value Display to turn on remove comment here and in schedule.js    
+                <section class="col-sm-4 col-xs-12"><label for="devInfo" class="fRight noPad">Dev Info</label></section>
+                <section class="col-sm-8 col-xs-12 " id="devInfo"></section>
+                -->
+
+                <input type="hidden" id="date" >
+                <input type="hidden" id="userId" >
+                     
+              <!-- Allow form submission with keyboard without duplicating the dialog button -->
+                     
+              
+              
+                   
+                </div><!-- row -->
+            </fieldset>
+        </form>
+            
+        </div>
+        <div class="modal-footer">
+              <input type="submit" id="submitBut" onclick="return printShiftView();" data-dismiss="modal">
+              <input type="button" id="cancelBut"  data-dismiss="modal" value="Cancel">
+        </div>
+      </div>      
+    </div>
+  </div>  
+      
+      
+
+
+      
