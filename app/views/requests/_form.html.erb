@@ -10,18 +10,33 @@
       </ul>
     </div>
   <% end %>
+<div class="requestPadd">
+  <div class="field">
+    <%= f.label @staff.find( params[:request_user_id] ).firstName %>
+    <%= f.label @staff.find( params[:request_user_id] ).lastName %>'s shift<br>
+    Date: &nbsp; <%= @schedule.startTime.strftime("%d/%b") %>
+  </div>
+  
+  <div class="field">
+    Time: &nbsp;
+    <%= f.label @schedule.startTime.strftime("%I:%M%p") %>
+    - 
+    <%= f.label @schedule.endTime.strftime("%I:%M%p") %>
+
+  </div>
 
   <div class="field">
-    <%= f.label :schedule_id %>
-    <%= f.text_field :schedule_id, :value => params[:request_schedule_id] %>
+    <%= f.hidden_field :schedule_id, :value => params[:request_schedule_id] %>
   </div>
 
   <div class="field">
-    <%= f.label :user_id %>
-    <%= f.text_field :user_id, :value => params[:request_user_id] %>
+    <%= f.hidden_field :user_id, :value => params[:request_user_id] %>
   </div>
 
-  <div class="actions">
-    <%= f.submit %>
+  <div class="actions alignRight">
+    <%= f.submit "Request" %>
   </div>
+  </div>
+  
+  <br><br>
 <% end %>
