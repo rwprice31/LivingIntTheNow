@@ -12,7 +12,13 @@ class SchedulesController < ApplicationController
   # GET /schedules/1.json
   def show
     @currentUser = current_user 
-    @date = Date.today.beginning_of_week
+
+    if params[:date].present?
+        @date = Date.parse(params[:date])
+    else
+        @date = Date.today.beginning_of_week
+    end
+      
     @staff = User.where("active = ? AND store_id = ?", true, current_user.store_id)  
     @weekSchedule = Schedule.where("date IN (?) AND user_id IN (?)", (@date..@date.next_day(6)), (User.where("active = ? AND store_id = ?", true, current_user.store_id).ids))
     @positions = Position.where("scheduleable = ? AND store_id = ?", true, current_user.store_id) 

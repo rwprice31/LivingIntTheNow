@@ -164,7 +164,11 @@ id="<%= emp.id %>|<%= d %>"><%= dayShift.first.startTime.strftime("%I:%M%p")[0..
                     </button>
                     </td>
                 <% else %>
- <%= link_to "Pick Up", new_request_path(:request_schedule_id => dayShift.first.id, :request_user_id => current_user.id), :class => "dropBut" %>
+                
+
+                
+                
+ <%= link_to "Pick Up", new_request_path(:request_schedule_id => dayShift.first.id, :request_user_id => current_user.id, :layout => false,), "data-toggle" => "modal", 'data-target' => '#requestModal', :class => "dropBut" %>
 <br> 
 </td>
                 <% end %>

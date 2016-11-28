@@ -31,6 +31,24 @@
     font-weight: bold;
 }
 
+.alignRight{
+    float: right;
+    padding-right: 10px;
+}
+
+.requestPadd{
+    padding-left: 10px;
+}
+
+.availModal{
+    display: none;
+}
+.smPrint{
+    font-size: .8em;
+    display: inline-block;
+    line-height: 95%;
+}
+
 .myTh{
     border: 1px solid blue;
     background-color:#dee1e5;
@@ -284,4 +302,49 @@
 	height: 100%;
 	z-index: 9999;
 	
+}
+
+.btnWeek {
+  background: #ced6e2;
+  background-image: -webkit-linear-gradient(top, #ced6e2, #9fafc6);
+  background-image: -moz-linear-gradient(top, #ced6e2, #9fafc6);
+  background-image: -ms-linear-gradient(top, #ced6e2, #9fafc6);
+  background-image: -o-linear-gradient(top, #ced6e2, #9fafc6);
+  background-image: linear-gradient(to bottom, #ced6e2, #9fafc6);
+  -webkit-border-radius: 8;
+  -moz-border-radius: 8;
+  border-radius: 8px;
+  text-shadow: 1px 1px 3px #666666;
+  font-family: Georgia;
+  color: #333333;
+  font-size: 1.1em;
+  padding: 5px 5px 5px 5px;
+  margin-left: 0px;
+  text-decoration: none;
+}
+
+.btnWeek:hover {
+  background: #48a6e0;
+  background-image: -webkit-linear-gradient(top, #6e9db9, #2470a3);
+  background-image: -moz-linear-gradient(top, #6e9db9, #2470a3);
+  background-image: -ms-linear-gradient(top, #6e9db9, #2470a3);
+  background-image: -o-linear-gradient(top, #6e9db9, #2470a3);
+  background-image: linear-gradient(to bottom, #6e9db9, #2470a3);
+  color: #DDDDDD;
+  text-decoration: none;
+}
+
+.dateBox {
+    color: #eeeeee;
+    background-color: #9fafc6;
+    padding: 5px;
+    padding-left: 30px;
+    padding-right: 30px;
+    width: 10%;
+    font-weight: bold;
+    border-style: solid;
+    border-color: #d3eaf8;
+    border-width: 1px;
+    margin-right: 15px;
+    margin-left: 18px;
 }

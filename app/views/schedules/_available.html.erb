@@ -11,6 +11,8 @@
     </div>
   <% end %>
 
+
+
  <div class="field">
     <%# f.label :id %>
     <%= f.hidden_field :id %>
@@ -36,6 +38,8 @@
     <%= f.date_select :date, { :discard_day => true, :discard_month => true, :discard_year => true } %>
   </div>
 
+<div class="availModal">
+
   <div class="field">
     <%= f.label :startTime %>
     <%= f.time_select :startTime, {disabled: 'restricted'} %>
@@ -43,13 +47,18 @@
 
   <div class="field">
     <%= f.label :endTime %>
-    <%= f.time_select :endTime, {disabled: 'restricted'} %>
+    <%= f.time_select :endTime, {disabled: 'restricted', display: 'none'} %>
   </div>
 
-  
+</div>
   
 
-  <div class="actions">
-    <%= f.submit %>
+  <div class="actions alignRight">
+    <%= f.submit "Confirm Drop"%>
   </div>
+  <br><br>
+<div class="field">
+  <span class="smPrint" >This shift is still your responsiblity until picked-up & approved.</span>
+</div>
+
 <% end %>
