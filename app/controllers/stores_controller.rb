@@ -28,13 +28,17 @@ class StoresController < ApplicationController
 
     respond_to do |format|
       if @store.save
-        format.html { redirect_to @store, notice: 'Store was successfully created.' }
-        format.json { render :show, status: :created, location: @store }
+        format.html { redirect_to new_user_registration_path(new_store: @store), notice: 'Store was successfully created.' }
+        format.json { render :show, status: :created, location: @store}
+
       else
         format.html { render :new }
         format.json { render json: @store.errors, status: :unprocessable_entity }
       end
+
     end
+
+
   end
 
   # PATCH/PUT /stores/1

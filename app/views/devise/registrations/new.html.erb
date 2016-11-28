@@ -1,4 +1,4 @@
-<h2>Sign tup</h2>
+<h2>Sign up</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
@@ -7,27 +7,31 @@
     <%= f.label :first_name %><br />
     <%= f.text_field :firstName, autofocus: true %>
   </div>
+
   <div class="field">
     <%= f.label :last_name %><br />
     <%= f.text_field :lastName %>
   </div>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label :active %>
-    <%= f.check_box :active %>
-  </div>
 
   <div class="field">
-    <%= f.label :admin %>
-    <%= f.check_box :admin %>
+    <%= f.hidden_field :email, :value => "temp" %>
   </div>
 
   <div class="field">
     <%= f.label :phone %>
     <%= f.text_field :phone %>
+  </div>
+
+  <div class="field">
+    <%= f.hidden_field :active, :value => true %>
+  </div>
+
+  <div class="field">
+    <%= f.hidden_field :admin, :value => true %>
+  </div>
+
+  <div class="field">
+    <%= f.hidden_field :store_id, :value => 1 %>
   </div>
 
   <div class="field">
@@ -39,17 +43,15 @@
   </div>
 
   <div class="field">
-    <%= f.label :store_ID%><br />
-    <%= f.text_field :store_id %>
-  </div>
-
-  <div class="field">
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
-  <div class="actions">
+
+  <div class="actions btn">
     <%= f.submit "Sign up" %>
+
   </div>
+
 <% end %>
 
 <%= render "users/shared/links" %>
