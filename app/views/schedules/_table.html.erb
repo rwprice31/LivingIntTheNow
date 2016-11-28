@@ -112,7 +112,7 @@ id="<%= emp.id %>|<%= d %>"><%= dayShift.first.startTime.strftime("%I:%M%p")[0..
                  <% dayShift = empShifts.where("date = ?", d) %>
 
 
-            <%# builds shifts of Current User %>
+            <%# builds shifts if emp is Current User %>
                  <% if (dayShift.first.present?) && (emp.id == current_user.id) then %>
 <%# Large Format shift field %>
 <td class="myTd lg" id="tag<%= emp.id %>|<%= d %>">
@@ -138,23 +138,55 @@ id="<%= emp.id %>|<%= d %>"><%= dayShift.first.startTime.strftime("%I:%M%p")[0..
 
 
 
-                <%# Large Format builds shifts that can be picked up %>
+            <%# Large Format builds shifts that can be picked up %>
                 <% elsif (dayShift.first.present?) && (dayShift.first.position_id.in?(current_user.position.ids)) && (dayShift.first.available) then %>
+                
+
+                
+                
 <td class="myTd lg" id="tag<%= emp.id %>|<%= d %>">
 <span class="timeText mil_time"  ><%= dayShift.first.startTime.strftime("%I:%M%p") %></span>
  - <span class="timeText mil_time"><%= dayShift.first.endTime.strftime("%I:%M%p") %></span>
  
- <%= link_to "Pick Up", new_request_path(:request_schedule_id => dayShift.first.id, :request_user_id => emp.id), :class => "dropBut" %>
  
-<br> 
-                      </td>
-                      
-                <%# Small Format builds shifts that can be picked up %>
-<td class="myTd sm" id="tag<%= emp.id %>|<%= d %>">
+                <% requestArray = Array.new %>
+                <% @requests.each do |request| %>
+                    <% requestArray << request.schedule_id %>
+                <% end %>
+                
+                <% if (dayShift.first.id.in?(requestArray)) %>
+                    <button type="button" class="available lg" 
+                      data-user="<%= emp.id %>" 
+                      data-date="<%= d %>" 
+                      data-requestID= <%= @requests.where("schedule_id = ?", dayShift.first.id) %>
+                      data-position="<%= job.id %>" >
+                      Shift Requested
+                    </button>
+                    </td>
+                <% else %>
+                
 
+                
+                
+ <%= link_to "Pick Up", new_request_path(:request_schedule_id => dayShift.first.id, :request_user_id => current_user.id, :layout => false,), "data-toggle" => "modal", 'data-target' => '#requestModal', :class => "dropBut" %>
+<br> 
+</td>
+                <% end %>
+            <%# Small Format builds shifts that can be picked up %>
+<td class="myTd sm" id="tag<%= emp.id %>|<%= d %>">
+                <% if (dayShift.first.id.in?(requestArray)) %>
+                    <button type="button" class="available sm" 
+                      data-user="<%= emp.id %>" 
+                      data-date="<%= d %>" 
+                      data-requestID= <%= @requests.where("schedule_id = ?", dayShift.first.id) %>
+                      data-position="<%= job.id %>" >
+                      Requested
+                    </button>
+                <% else %>  
 <%= link_to "Pick Up", new_request_path(:request_schedule_id => dayShift.first.id, :request_user_id => emp.id), :class => "dropBut" %><br> 
                       </td>          
-                      
+                <% end %>   
+                
                 <%# builds shifts that can't be picked up %>
                 <% elsif (dayShift.first.present?)  %>
 <td class="myTd lg" id="tag<%= emp.id %>|<%= d %>">
