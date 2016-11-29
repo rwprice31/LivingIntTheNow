@@ -1,6 +1,6 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-user_one:
+one:
   email: thisisanemail@email.com
   encrypted_password: <%= User.new.send(:password_digest, 'Password')
   firstName: Smitty
@@ -8,8 +8,10 @@ user_one:
   active: true
   admin: true
   phone: '6785551234'
+  store: one
+  position: one
 
-user_two:
+two:
   email: angryjoe@fake-email.com
   encrypted_password: <%= User.new.send(:password_digest, '1ms04ngry!')
   firstName: Joe
@@ -17,3 +19,5 @@ user_two:
   active: false
   admin: false
   phone: '7705558889'
+  store: two
+  position: two

@@ -1,16 +1,18 @@
 require 'test_helper'
 
 class SchedulesControllerTest < ActionDispatch::IntegrationTest
-  setup do
-    @schedule = schedules(:one)
-  end
+  # setup do
+  #   @schedule = schedules(:one)
+  # end
 
   # test "should get index" do
+  #   sign_in @user
   #   get schedules_url
   #   assert_response :success
   # end
 
   # test "should get new" do
+  #   sign_in @user
   #   get new_schedule_url
   #   assert_response :success
   # end
@@ -24,11 +26,13 @@ class SchedulesControllerTest < ActionDispatch::IntegrationTest
   # end
 
   # test "should show schedule" do
+  #   sign_in @user
   #   get schedule_url(@schedule)
   #   assert_response :success
   # end
 
   # test "should get edit" do
+  #   sign_in @user
   #   get edit_schedule_url(@schedule)
   #   assert_response :success
   # end
