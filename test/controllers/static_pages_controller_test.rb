@@ -1,23 +1,32 @@
 require 'test_helper'
 
 class StaticPagesControllerTest < ActionDispatch::IntegrationTest
+  setup do 
+    # @user = User.create(email: "example@fake-email.com", password: Devise::Encryptor.digest(User, "helloworld"), firstName: "John", lastName: "Smith", phone: "7705559998", active: true, admin: true)
+    @user = users(:one)
+  end
+  
   test "should get home" do
-    get static_pages_home_url
+    sign_in @user
+    get root_path
     assert_response :success
   end
 
   test "should get help" do
-    get static_pages_help_url
+    sign_in @user
+    get '/help'
     assert_response :success
   end
 
   test "should get about" do
-    get static_pages_about_url
+    sign_in @user
+    get '/about'
     assert_response :success
   end
 
   test "should get contact" do
-    get static_pages_contact_url
+    sign_in @user
+    get '/contact'
     assert_response :success
   end
 
