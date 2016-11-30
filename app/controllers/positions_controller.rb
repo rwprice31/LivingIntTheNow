@@ -4,7 +4,7 @@ class PositionsController < ApplicationController
   # GET /positions
   # GET /positions.json
   def index
-    @positions = Position.all
+    @positions = Position.where(store: current_user.store_id)
   end
 
   # GET /positions/1
