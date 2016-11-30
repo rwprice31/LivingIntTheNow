@@ -28,12 +28,11 @@
 
   <div class="field">
     <%= f.label :scheduleable %>
-    <%= f.check_box :scheduleable %>
+    <%= f.check_box :scheduleable%>
   </div>
 
   <div class="field">
-    <%= f.label :store_id %>
-    <%= f.text_field :store_id %>
+    <%= f.hidden_field :store_id, :value => 1 %>
   </div>
 
   <div class="actions">

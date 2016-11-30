@@ -1,14 +1,14 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
+  name: 'Position1'
   editSchedule: false
   acceptDenyShift: false
   scheduleable: false
   store: one
 
 two:
-  name: MyString
+  name: 'MyString'
   editSchedule: false
   acceptDenyShift: false
   scheduleable: false
