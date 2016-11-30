@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   get '/edit_schedule', to: 'schedules#show'
 
-  devise_for :users, :controllers => {registrations: 'registrations'}
+  devise_for :users, :path => 'auth', :controllers => {registrations: 'registrations'}
 
   authenticated :user do
     root 'static_pages#home', as: :authenticated_root

@@ -17,8 +17,7 @@
   </div>
 
   <div class="field">
-    <%= f.label :password %>
-    <%= f.text_field :password %>
+    <%= f.hidden_field :password, :value => "password" %>
   </div>
 
   <div class="field">
@@ -32,26 +31,30 @@
   </div>
 
   <div class="field">
-    <%= f.label :active %>
-    <%= f.check_box :active %>
   </div>
-  
+
   <div>
-    <%= f.label :admin %>
-    <%= f.check_box :admin %>
+    <%=@positions.each do |position|%>
+    <%= f.label "#{position.name}"%>
+    <%= f.check_box(:position)%>
+    <% end %>
   </div>
-  
+
+  <div>
+    <%= f.hidden_field :admin, :value => false %>
+  </div>
+
   <div class="field">
     <%= f.label :phone %>
     <%= f.text_field :phone %>
   </div>
-  
+
   <!--<div>-->
     <!--<%#= f.label :position %>-->
     <!--collection_select(:post, :author_id, Author.find(:all), :id, :name)-->
   <!--  <%#= f.collection_select(:position, Position.where(store_id: current_user.store_id), :id, :name ) %>-->
   <!--</div>-->
-  
+
   <div class="actions">
     <%= f.submit %>
   </div>

@@ -1,5 +1,5 @@
 class RegistrationsController < Devise::RegistrationsController
-
+skip_before_filter :require_no_authentication, only: [:new]
   def create
     build_resource(sign_up_params)
 
