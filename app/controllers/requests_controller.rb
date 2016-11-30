@@ -62,7 +62,11 @@ class RequestsController < ApplicationController
 
   # GET /requests/new
   def new
+
     @request = Request.new
+    @schedule = Schedule.find(params[:request_schedule_id])
+    @staff = User.where("active = ? AND store_id = ?", true, current_user.store_id)  
+    render :layout => false
   end
 
   # GET /requests/1/edit
