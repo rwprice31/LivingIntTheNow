@@ -1,13 +1,14 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  email: MyString
-  companyName: MyString
-  address: MyString
-  zipCode: MyString
+  email: 'store1-email@example.com'
+  companyName: 'ExampleCompany Inc'
+  address: '123 Whatup Lane'
+  zipCode: '99990'
 
 two:
-  email: MyString
-  companyName: MyString
-  address: MyString
-  zipCode: MyString
+  email: 'store2-email@example.com'
+  companyName: 'ExampleCompany Ind'
+  address: '123 Notmuch Lane'
+  zipCode: '99991'
+

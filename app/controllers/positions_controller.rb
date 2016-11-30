@@ -10,6 +10,7 @@ class PositionsController < ApplicationController
   # GET /positions/1
   # GET /positions/1.json
   def show
+    @position = Position.find(params[:id])
   end
 
   # GET /positions/new
@@ -19,6 +20,7 @@ class PositionsController < ApplicationController
 
   # GET /positions/1/edit
   def edit
+    @position = Position.find(params[:id])
   end
 
   # POST /positions
@@ -40,6 +42,7 @@ class PositionsController < ApplicationController
   # PATCH/PUT /positions/1
   # PATCH/PUT /positions/1.json
   def update
+    @position = Position.find(params[:id])
     respond_to do |format|
       if @position.update(position_params)
         format.html { redirect_to @position, notice: 'Position was successfully updated.' }
@@ -54,6 +57,7 @@ class PositionsController < ApplicationController
   # DELETE /positions/1
   # DELETE /positions/1.json
   def destroy
+    @position = Position.find(params[:id])
     @position.destroy
     respond_to do |format|
       format.html { redirect_to positions_url, notice: 'Position was successfully destroyed.' }

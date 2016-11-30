@@ -17,14 +17,16 @@
     <% @requests.each do |request| %>
       <tr>
         <% schedule = Schedule.where(id: request.schedule_id).first %>
-        <td><%= schedule.user.firstName + " " + schedule.user.lastName %></td>
+        <% if schedule != nil then %>
+        <td><%=schedule.user.firstName + " " + schedule.user.lastName%></td>
         <% requester = User.where(id: request.user_id).first %>
-        <td><%= requester.firstName + " " + requester.lastName %></td>
+        <td><%= if requester != nil then requester.firstName + " " + requester.lastName end %></td>
         <td><%= schedule.date %></td>
         <td><%= schedule.startTime.strftime("%l:%M%p") %></td>
         <td><%= schedule.endTime.strftime("%l:%M%p") %></td>
         <td><%= render 'approvalForm', user: requester, schedule: schedule %></td>
         <td><%= button_to 'Deny Request', request, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

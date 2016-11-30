@@ -58,6 +58,7 @@ class RequestsController < ApplicationController
   # GET /requests/1
   # GET /requests/1.json
   def show
+    @request = Request.find(params[:id])
   end
 
   # GET /requests/new
@@ -71,6 +72,7 @@ class RequestsController < ApplicationController
 
   # GET /requests/1/edit
   def edit
+    @request = Request.find(params[:id])
   end
 
   # POST /requests
@@ -97,9 +99,10 @@ class RequestsController < ApplicationController
   # PATCH/PUT /requests/1
   # PATCH/PUT /requests/1.json
   def update
+    @request = Request.find(params[:id])
     respond_to do |format|
       if @request.update(request_params)
-        format.html { redirect_to @request, notice: 'Request was successfully updated.' }
+        format.html { redirect_to schedule_url(current_user.id) , notice: 'Request was successfully updated.' }
         format.json { render :show, status: :ok, location: @request }
       else
         format.html { render :edit }
@@ -111,6 +114,7 @@ class RequestsController < ApplicationController
   # DELETE /requests/1
   # DELETE /requests/1.json
   def destroy
+    @request = Request.find(params[:id])
     @request.destroy
     respond_to do |format|
       format.html { redirect_to requests_url, notice: 'Request was successfully destroyed.' }
