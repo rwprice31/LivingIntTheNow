@@ -4,7 +4,7 @@ class PositionsController < ApplicationController
   # GET /positions
   # GET /positions.json
   def index
-    @positions = Position.all
+    @positions = Position.where(store: current_user.store_id)
   end
 
   # GET /positions/1
@@ -26,7 +26,10 @@ class PositionsController < ApplicationController
   # POST /positions
   # POST /positions.json
   def create
-    @position = Position.new(position_params)
+    newPosition = Position.new(position_params)
+    @store = Store.find(current_user.store_id)
+    newPosition.store_id = @store.id
+    @position = newPosition
 
     respond_to do |format|
       if @position.save
